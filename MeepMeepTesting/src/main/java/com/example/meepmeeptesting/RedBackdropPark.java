@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class BlueTruss {
+public class RedBackdropPark {
     public static void main(String[] args) {
         MeepMeep meepMeep = new MeepMeep(650);
 
@@ -20,19 +20,11 @@ public class BlueTruss {
                 // Set bot constraints: maxVel, maxAccel, maxAngVel, maxAngAccel, track width
                 .setConstraints(60, 60, Math.toRadians(180), Math.toRadians(180), 15)
                 .followTrajectorySequence(drive ->
-                        drive.trajectorySequenceBuilder(new Pose2d(-62, -34, 0))
-                                .forward(26)
-                                .strafeLeft(40)
-                                .lineToLinearHeading(new Pose2d(-34, 48, Math.toRadians(90)))
-                                .lineToLinearHeading(new Pose2d(-36, 0, Math.toRadians(270)))
-                                .lineToLinearHeading(new Pose2d(-36, -58, Math.toRadians(270)))
-                                .lineToLinearHeading(new Pose2d(-36, 0, Math.toRadians(270)))
-                                .lineToLinearHeading(new Pose2d(-34, 48, Math.toRadians(90)))
-                                .lineToLinearHeading(new Pose2d(-36, 0, Math.toRadians(270)))
-                                .lineToLinearHeading(new Pose2d(-36, -58, Math.toRadians(270)))
-                                .lineToLinearHeading(new Pose2d(-36, 0, Math.toRadians(270)))
-                                .lineToLinearHeading(new Pose2d(-34, 48, Math.toRadians(90)))
-
+                        drive.trajectorySequenceBuilder(new Pose2d(62, 11, Math.toRadians(180)))
+                                .forward(20)
+                                .splineTo(new Vector2d(34, 48), Math.toRadians(90))
+                                .back(9)
+                                .splineToConstantHeading(new Vector2d(58, 58), Math.toRadians(90))
                                 .waitSeconds(5)
                                 .build()
                 );

@@ -13,23 +13,8 @@ import org.firstinspires.ftc.teamcode.trajectorysequence.sequencesegment.Traject
 public class BlueBackdrop extends LinearOpMode {
 
     @Override
-    public void runOpMode() throws InterruptedException{
-        SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
+    public void runOpMode() throws InterruptedException {
 
-        Pose2d startPose = new Pose2d(-62, -34, 0);
-        drive.setPoseEstimate(startPose);
-
-        TrajectorySequence traj = drive.trajectorySequenceBuilder(new Pose2d(-62, -34, 0))
-                .forward(26)
-                .strafeLeft(40)
-                .lineToLinearHeading(new Pose2d(-34, 48, Math.toRadians(90)))
-                .lineToLinearHeading(new Pose2d(-36, 0, Math.toRadians(270)))
-                .forward(58)
-                .build();
-
-        waitForStart();
-
-        drive.followTrajectorySequence(traj);
     }
-
 }
+

@@ -108,6 +108,7 @@
     <attr format="boolean" name="isLightTheme"/>
     <attr format="color" name="lineBright"/>
     <attr format="color" name="lineLight"/>
+    <attr format="reference" name="nestedScrollViewStyle"/>
     <attr format="color" name="textBright"/>
     <attr format="color" name="textLight"/>
     <attr format="color" name="textMedium"/>
@@ -448,10 +449,15 @@
     <item name="tag_accessibility_clickable_spans" type="id"/>
     <item name="tag_accessibility_heading" type="id"/>
     <item name="tag_accessibility_pane_title" type="id"/>
+    <item name="tag_on_apply_window_listener" type="id"/>
+    <item name="tag_on_receive_content_listener" type="id"/>
+    <item name="tag_on_receive_content_mime_types" type="id"/>
     <item name="tag_screen_reader_focusable" type="id"/>
+    <item name="tag_state_description" type="id"/>
     <item name="tag_transition_group" type="id"/>
     <item name="tag_unhandled_key_event_manager" type="id"/>
     <item name="tag_unhandled_key_listeners" type="id"/>
+    <item name="tag_window_insets_animation_callback" type="id"/>
     <item name="text" type="id"/>
     <item name="text2" type="id"/>
     <item name="title" type="id"/>
@@ -3591,6 +3597,12 @@
           <enum name="front" value="98"/>
        </attr>
     </declare-styleable>
+    <declare-styleable name="Capability">
+        
+        <attr format="reference" name="queryPatterns"/>
+        
+        <attr format="boolean" name="shortcutMatchRequired"/>
+    </declare-styleable>
     <declare-styleable name="ColorListPreference">
         <attr format="reference" name="colors"/>
     </declare-styleable>
@@ -3677,6 +3689,8 @@
               timeout and wait until a reply is received from the font provider. -->
             <enum name="forever" value="-1"/>
         </attr>
+        
+        <attr format="string" name="fontProviderSystemFontFamily"/>
     </declare-styleable>
     <declare-styleable name="FontFamilyFont">
         

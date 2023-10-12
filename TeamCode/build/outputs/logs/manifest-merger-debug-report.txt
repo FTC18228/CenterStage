@@ -1,10 +1,10 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml:8:1-11:12
-INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml:8:1-11:12
-INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml:8:1-11:12
-INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml:8:1-11:12
-MERGED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-80:12
+ADDED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml:8:1-11:12
+INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml:8:1-11:12
+INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml:8:1-11:12
+INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml:8:1-11:12
+MERGED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-80:12
 MERGED from [org.firstinspires.ftc:OnBotJava:9.0.0] C:\Users\danie\.gradle\caches\transforms-3\2bad687eacdbfab09e416a0c13cd9a65\transformed\jetified-OnBotJava-9.0.0\AndroidManifest.xml:34:1-43:12
 MERGED from [org.firstinspires.ftc:Blocks:9.0.0] C:\Users\danie\.gradle\caches\transforms-3\a03ad0d15fa1dac627c7b6f87e973d4e\transformed\jetified-Blocks-9.0.0\AndroidManifest.xml:2:1-26:12
 MERGED from [com.acmerobotics.dashboard:dashboard:0.4.12] C:\Users\danie\.gradle\caches\transforms-3\63dbb44caa0553503bd8bb1f317f8c62\transformed\jetified-dashboard-0.4.12\AndroidManifest.xml:2:1-9:12
@@ -18,23 +18,25 @@ MERGED from [org.firstinspires.ftc:Tfod:9.0.0] C:\Users\danie\.gradle\caches\tra
 MERGED from [org.firstinspires.ftc:gameAssets-CenterStage:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\23d4ddfcbe072c5344e6554db9480b09\transformed\jetified-gameAssets-CenterStage-1.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [org.tensorflow:tensorflow-lite-task-vision:0.4.3] C:\Users\danie\.gradle\caches\transforms-3\e722e762881abe98ea31bf266b69a4c2\transformed\jetified-tensorflow-lite-task-vision-0.4.3\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\danie\.gradle\caches\transforms-3\c6f9a08362f0b2ebd1f0ffa501e6b073\transformed\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [org.ftclib.ftclib:core:2.0.1] C:\Users\danie\.gradle\caches\transforms-3\d4d861249a58c514d7eb90a6dc8b2826\transformed\jetified-core-2.0.1\AndroidManifest.xml:2:1-11:12
 MERGED from [org.tensorflow:tensorflow-lite:2.12.0] C:\Users\danie\.gradle\caches\transforms-3\3c270aebce2a0c27e9571cad265d204f\transformed\jetified-tensorflow-lite-2.12.0\AndroidManifest.xml:2:1-11:12
 MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\danie\.gradle\caches\transforms-3\77b030d33441ad2424efa99d4f05c37e\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:17:1-56:12
 MERGED from [com.jakewharton.threetenabp:threetenabp:1.3.1] C:\Users\danie\.gradle\caches\transforms-3\b55addf44cbfb7cef1f48f643cf871f7\transformed\jetified-threetenabp-1.3.1\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\7d5ed51755467246fa60a0847437a02c\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\5a6c3bdc4d162f256ce385235f9ca0fe\transformed\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\danie\.gradle\caches\transforms-3\0de24351b70db0cc25397c9dbcae2c0f\transformed\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\521d89bd14f99e257d9292a164358d1f\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core-ktx:1.6.0] C:\Users\danie\.gradle\caches\transforms-3\d358673633e6ed678df398b4d252029b\transformed\jetified-core-ktx-1.6.0\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\71beaf9b9515ee0c7b82a12d9c11e934\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\fa2ae729ac037a20b7f29cffc2f289bd\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\6329d84e6a5e589c7fcd51f99ca5742a\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\09071ac4a18d956eff0329dab7e76adf\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\9acf6bb2d5e62220fd8b5dfd61754f8d\transformed\jetified-activity-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\71beaf9b9515ee0c7b82a12d9c11e934\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\fa2ae729ac037a20b7f29cffc2f289bd\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\878686f7fe31c295203f5db924f4f484\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.core:core:1.3.0] C:\Users\danie\.gradle\caches\transforms-3\080f313e68143e30a4633ed9df16502e\transformed\core-1.3.0\AndroidManifest.xml:17:1-26:12
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\7d5ed51755467246fa60a0847437a02c\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\cf8406776fd5b23f3359310765c2e504\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\danie\.gradle\caches\transforms-3\aeeb515d6f65c495d431ba976039d139\transformed\lifecycle-runtime-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.6.0] C:\Users\danie\.gradle\caches\transforms-3\036bfe9274e21ef3ad7c3f442f51022b\transformed\core-1.6.0\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\danie\.gradle\caches\transforms-3\86ae8d03a3e08cadc4d0a3bbfbf56999\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\danie\.gradle\caches\transforms-3\dd0aa14225f65754ef54445e5454cc04\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\danie\.gradle\caches\transforms-3\aeeb515d6f65c495d431ba976039d139\transformed\lifecycle-runtime-2.1.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\0543055cfe7aa0cbf0132f511f10fc30\transformed\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\b4f00a230fd6bea253cf2f0418a800f2\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\danie\.gradle\caches\transforms-3\1d6a4aec74ff2eb0034023b506b257a6\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
@@ -47,27 +49,28 @@ MERGED from [org.tensorflow:tensorflow-lite-support-api:0.4.3] C:\Users\danie\.g
 MERGED from [org.tensorflow:tensorflow-lite-api:2.12.0] C:\Users\danie\.gradle\caches\transforms-3\42d731ecd02b038366716d180221280a\transformed\jetified-tensorflow-lite-api-2.12.0\AndroidManifest.xml:2:1-11:12
 MERGED from [org.openftc:opencv-repackaged-bundled-dylibs:4.7.0-A] C:\Users\danie\.gradle\caches\transforms-3\561415b838a86c1dd200218d280fef68\transformed\jetified-opencv-repackaged-bundled-dylibs-4.7.0-A\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\danie\.gradle\caches\transforms-3\e12dc8ef7091a0cab0b9864c9c3e4577\transformed\jetified-image-1.0.0-beta1\AndroidManifest.xml:2:1-9:12
-INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml:8:1-11:12
-INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml:8:1-11:12
-INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml:8:1-11:12
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\ede68712d19ed1912d9955d39d8a9edf\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
+INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml:8:1-11:12
+INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml:8:1-11:12
+INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml:8:1-11:12
 	package
-		INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml
-		ADDED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml:8:1-11:12
-		INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml
+		ADDED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml:8:1-11:12
+		INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml
-		ADDED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml:8:1-11:12
-		INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml
+		ADDED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml:8:1-11:12
+		INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml
-		ADDED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml:8:1-11:12
-		INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml
+		ADDED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml:8:1-11:12
+		INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml:9:5-63
+		ADDED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml:9:5-63
 application
-ADDED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml:10:5-19
-MERGED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:5-78:19
-MERGED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:5-78:19
+ADDED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml:10:5-19
+MERGED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:5-78:19
+MERGED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:5-78:19
 MERGED from [org.firstinspires.ftc:Blocks:9.0.0] C:\Users\danie\.gradle\caches\transforms-3\a03ad0d15fa1dac627c7b6f87e973d4e\transformed\jetified-Blocks-9.0.0\AndroidManifest.xml:18:5-24:19
 MERGED from [org.firstinspires.ftc:Blocks:9.0.0] C:\Users\danie\.gradle\caches\transforms-3\a03ad0d15fa1dac627c7b6f87e973d4e\transformed\jetified-Blocks-9.0.0\AndroidManifest.xml:18:5-24:19
 MERGED from [org.firstinspires.ftc:FtcCommon:9.0.0] C:\Users\danie\.gradle\caches\transforms-3\f3db1d91de045c4f4f0ad1d73108d9ca\transformed\jetified-FtcCommon-9.0.0\AndroidManifest.xml:23:5-172:19
@@ -82,10 +85,10 @@ MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\danie\.gradl
 MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\danie\.gradle\caches\transforms-3\77b030d33441ad2424efa99d4f05c37e\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:46:5-54:19
 MERGED from [com.jakewharton.threetenabp:threetenabp:1.3.1] C:\Users\danie\.gradle\caches\transforms-3\b55addf44cbfb7cef1f48f643cf871f7\transformed\jetified-threetenabp-1.3.1\AndroidManifest.xml:7:5-20
 MERGED from [com.jakewharton.threetenabp:threetenabp:1.3.1] C:\Users\danie\.gradle\caches\transforms-3\b55addf44cbfb7cef1f48f643cf871f7\transformed\jetified-threetenabp-1.3.1\AndroidManifest.xml:7:5-20
-MERGED from [androidx.core:core:1.3.0] C:\Users\danie\.gradle\caches\transforms-3\080f313e68143e30a4633ed9df16502e\transformed\core-1.3.0\AndroidManifest.xml:24:5-89
-MERGED from [androidx.core:core:1.3.0] C:\Users\danie\.gradle\caches\transforms-3\080f313e68143e30a4633ed9df16502e\transformed\core-1.3.0\AndroidManifest.xml:24:5-89
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\cf8406776fd5b23f3359310765c2e504\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\cf8406776fd5b23f3359310765c2e504\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.core:core:1.6.0] C:\Users\danie\.gradle\caches\transforms-3\036bfe9274e21ef3ad7c3f442f51022b\transformed\core-1.6.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.6.0] C:\Users\danie\.gradle\caches\transforms-3\036bfe9274e21ef3ad7c3f442f51022b\transformed\core-1.6.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\danie\.gradle\caches\transforms-3\86ae8d03a3e08cadc4d0a3bbfbf56999\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\danie\.gradle\caches\transforms-3\86ae8d03a3e08cadc4d0a3bbfbf56999\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
 MERGED from [org.tensorflow:tensorflow-lite-task-base:0.4.3] C:\Users\danie\.gradle\caches\transforms-3\a796c3971c3a8fc06c9bf1d05c4946ce\transformed\jetified-tensorflow-lite-task-base-0.4.3\AndroidManifest.xml:4:4-5:18
 MERGED from [org.tensorflow:tensorflow-lite-task-base:0.4.3] C:\Users\danie\.gradle\caches\transforms-3\a796c3971c3a8fc06c9bf1d05c4946ce\transformed\jetified-tensorflow-lite-task-base-0.4.3\AndroidManifest.xml:4:4-5:18
 MERGED from [org.tensorflow:tensorflow-lite-api:2.12.0] C:\Users\danie\.gradle\caches\transforms-3\42d731ecd02b038366716d180221280a\transformed\jetified-tensorflow-lite-api-2.12.0\AndroidManifest.xml:9:5-20
@@ -93,27 +96,27 @@ MERGED from [org.tensorflow:tensorflow-lite-api:2.12.0] C:\Users\danie\.gradle\c
 MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\danie\.gradle\caches\transforms-3\e12dc8ef7091a0cab0b9864c9c3e4577\transformed\jetified-image-1.0.0-beta1\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\danie\.gradle\caches\transforms-3\e12dc8ef7091a0cab0b9864c9c3e4577\transformed\jetified-image-1.0.0-beta1\AndroidManifest.xml:7:5-20
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.3.0] C:\Users\danie\.gradle\caches\transforms-3\080f313e68143e30a4633ed9df16502e\transformed\core-1.3.0\AndroidManifest.xml:24:18-86
+		ADDED from [androidx.core:core:1.6.0] C:\Users\danie\.gradle\caches\transforms-3\036bfe9274e21ef3ad7c3f442f51022b\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:9-41
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:9-41
 	android:largeHeap
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:9-33
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:9-33
 	android:icon
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:9-45
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:9-45
 	android:allowBackup
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:9-35
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:9-35
 	android:theme
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:9-45
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:19:9-45
 	android:name
 		ADDED from [org.firstinspires.ftc:RobotCore:9.0.0] C:\Users\danie\.gradle\caches\transforms-3\aad7f6244e4467db8f33484a76ccb240\transformed\jetified-RobotCore-9.0.0\AndroidManifest.xml:87:18-97
 	android:usesCleartextTraffic
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:9-44
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:9-44
 uses-sdk
-INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml
-INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml
-MERGED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-10:41
-MERGED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-10:41
+INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml
+INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml
+MERGED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-10:41
+MERGED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-10:41
 MERGED from [org.firstinspires.ftc:OnBotJava:9.0.0] C:\Users\danie\.gradle\caches\transforms-3\2bad687eacdbfab09e416a0c13cd9a65\transformed\jetified-OnBotJava-9.0.0\AndroidManifest.xml:39:5-41:41
 MERGED from [org.firstinspires.ftc:OnBotJava:9.0.0] C:\Users\danie\.gradle\caches\transforms-3\2bad687eacdbfab09e416a0c13cd9a65\transformed\jetified-OnBotJava-9.0.0\AndroidManifest.xml:39:5-41:41
 MERGED from [org.firstinspires.ftc:Blocks:9.0.0] C:\Users\danie\.gradle\caches\transforms-3\a03ad0d15fa1dac627c7b6f87e973d4e\transformed\jetified-Blocks-9.0.0\AndroidManifest.xml:7:5-9:41
@@ -140,40 +143,44 @@ MERGED from [org.tensorflow:tensorflow-lite-task-vision:0.4.3] C:\Users\danie\.g
 MERGED from [org.tensorflow:tensorflow-lite-task-vision:0.4.3] C:\Users\danie\.gradle\caches\transforms-3\e722e762881abe98ea31bf266b69a4c2\transformed\jetified-tensorflow-lite-task-vision-0.4.3\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\danie\.gradle\caches\transforms-3\c6f9a08362f0b2ebd1f0ffa501e6b073\transformed\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\danie\.gradle\caches\transforms-3\c6f9a08362f0b2ebd1f0ffa501e6b073\transformed\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [org.ftclib.ftclib:core:2.0.1] C:\Users\danie\.gradle\caches\transforms-3\d4d861249a58c514d7eb90a6dc8b2826\transformed\jetified-core-2.0.1\AndroidManifest.xml:7:5-9:41
+MERGED from [org.ftclib.ftclib:core:2.0.1] C:\Users\danie\.gradle\caches\transforms-3\d4d861249a58c514d7eb90a6dc8b2826\transformed\jetified-core-2.0.1\AndroidManifest.xml:7:5-9:41
 MERGED from [org.tensorflow:tensorflow-lite:2.12.0] C:\Users\danie\.gradle\caches\transforms-3\3c270aebce2a0c27e9571cad265d204f\transformed\jetified-tensorflow-lite-2.12.0\AndroidManifest.xml:6:5-7:38
 MERGED from [org.tensorflow:tensorflow-lite:2.12.0] C:\Users\danie\.gradle\caches\transforms-3\3c270aebce2a0c27e9571cad265d204f\transformed\jetified-tensorflow-lite-2.12.0\AndroidManifest.xml:6:5-7:38
 MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\danie\.gradle\caches\transforms-3\77b030d33441ad2424efa99d4f05c37e\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:20:5-44
 MERGED from [com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\danie\.gradle\caches\transforms-3\77b030d33441ad2424efa99d4f05c37e\transformed\jetified-zxing-android-embedded-4.3.0\AndroidManifest.xml:20:5-44
 MERGED from [com.jakewharton.threetenabp:threetenabp:1.3.1] C:\Users\danie\.gradle\caches\transforms-3\b55addf44cbfb7cef1f48f643cf871f7\transformed\jetified-threetenabp-1.3.1\AndroidManifest.xml:5:5-44
 MERGED from [com.jakewharton.threetenabp:threetenabp:1.3.1] C:\Users\danie\.gradle\caches\transforms-3\b55addf44cbfb7cef1f48f643cf871f7\transformed\jetified-threetenabp-1.3.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\7d5ed51755467246fa60a0847437a02c\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\7d5ed51755467246fa60a0847437a02c\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\5a6c3bdc4d162f256ce385235f9ca0fe\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\5a6c3bdc4d162f256ce385235f9ca0fe\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\danie\.gradle\caches\transforms-3\0de24351b70db0cc25397c9dbcae2c0f\transformed\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\danie\.gradle\caches\transforms-3\0de24351b70db0cc25397c9dbcae2c0f\transformed\jetified-appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\521d89bd14f99e257d9292a164358d1f\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\521d89bd14f99e257d9292a164358d1f\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.6.0] C:\Users\danie\.gradle\caches\transforms-3\d358673633e6ed678df398b4d252029b\transformed\jetified-core-ktx-1.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.core:core-ktx:1.6.0] C:\Users\danie\.gradle\caches\transforms-3\d358673633e6ed678df398b4d252029b\transformed\jetified-core-ktx-1.6.0\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\71beaf9b9515ee0c7b82a12d9c11e934\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\71beaf9b9515ee0c7b82a12d9c11e934\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\fa2ae729ac037a20b7f29cffc2f289bd\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\fa2ae729ac037a20b7f29cffc2f289bd\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\6329d84e6a5e589c7fcd51f99ca5742a\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\6329d84e6a5e589c7fcd51f99ca5742a\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\09071ac4a18d956eff0329dab7e76adf\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\09071ac4a18d956eff0329dab7e76adf\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\9acf6bb2d5e62220fd8b5dfd61754f8d\transformed\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.activity:activity:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\9acf6bb2d5e62220fd8b5dfd61754f8d\transformed\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\71beaf9b9515ee0c7b82a12d9c11e934\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\71beaf9b9515ee0c7b82a12d9c11e934\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\fa2ae729ac037a20b7f29cffc2f289bd\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\fa2ae729ac037a20b7f29cffc2f289bd\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\878686f7fe31c295203f5db924f4f484\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\878686f7fe31c295203f5db924f4f484\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.3.0] C:\Users\danie\.gradle\caches\transforms-3\080f313e68143e30a4633ed9df16502e\transformed\core-1.3.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.3.0] C:\Users\danie\.gradle\caches\transforms-3\080f313e68143e30a4633ed9df16502e\transformed\core-1.3.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\7d5ed51755467246fa60a0847437a02c\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\7d5ed51755467246fa60a0847437a02c\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\cf8406776fd5b23f3359310765c2e504\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\cf8406776fd5b23f3359310765c2e504\transformed\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\danie\.gradle\caches\transforms-3\aeeb515d6f65c495d431ba976039d139\transformed\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\danie\.gradle\caches\transforms-3\aeeb515d6f65c495d431ba976039d139\transformed\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.6.0] C:\Users\danie\.gradle\caches\transforms-3\036bfe9274e21ef3ad7c3f442f51022b\transformed\core-1.6.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.6.0] C:\Users\danie\.gradle\caches\transforms-3\036bfe9274e21ef3ad7c3f442f51022b\transformed\core-1.6.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\danie\.gradle\caches\transforms-3\86ae8d03a3e08cadc4d0a3bbfbf56999\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\danie\.gradle\caches\transforms-3\86ae8d03a3e08cadc4d0a3bbfbf56999\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\danie\.gradle\caches\transforms-3\dd0aa14225f65754ef54445e5454cc04\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\danie\.gradle\caches\transforms-3\dd0aa14225f65754ef54445e5454cc04\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\danie\.gradle\caches\transforms-3\aeeb515d6f65c495d431ba976039d139\transformed\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\danie\.gradle\caches\transforms-3\aeeb515d6f65c495d431ba976039d139\transformed\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\0543055cfe7aa0cbf0132f511f10fc30\transformed\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\0543055cfe7aa0cbf0132f511f10fc30\transformed\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\danie\.gradle\caches\transforms-3\b4f00a230fd6bea253cf2f0418a800f2\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
@@ -196,108 +203,110 @@ MERGED from [org.openftc:opencv-repackaged-bundled-dylibs:4.7.0-A] C:\Users\dani
 MERGED from [org.openftc:opencv-repackaged-bundled-dylibs:4.7.0-A] C:\Users\danie\.gradle\caches\transforms-3\561415b838a86c1dd200218d280fef68\transformed\jetified-opencv-repackaged-bundled-dylibs-4.7.0-A\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\danie\.gradle\caches\transforms-3\e12dc8ef7091a0cab0b9864c9c3e4577\transformed\jetified-image-1.0.0-beta1\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\danie\.gradle\caches\transforms-3\e12dc8ef7091a0cab0b9864c9c3e4577\transformed\jetified-image-1.0.0-beta1\AndroidManifest.xml:5:5-44
-INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml
-INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\ede68712d19ed1912d9955d39d8a9edf\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\danie\.gradle\caches\transforms-3\ede68712d19ed1912d9955d39d8a9edf\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
+INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml
+INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml
-		ADDED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml
+		ADDED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml
-		ADDED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\danie\Desktop\FtcRobotController-master\TeamCode\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml
+		ADDED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\TeamCode\src\main\AndroidManifest.xml
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
-ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:5-81
+ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:5-81
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:22-78
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:22-78
 meta-data#org.firstinspires.latestSupportedControlHubVersion
-ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:23:9-25:33
+ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:23:9-25:33
 	android:value
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:13-30
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:13-30
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:24:13-78
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:24:13-78
 activity#org.firstinspires.ftc.robotcontroller.internal.PermissionValidatorWrapper
-ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:28:9-39:20
+ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:28:9-39:20
 	android:screenOrientation
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:33:13-49
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:33:13-49
 	android:label
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:31:13-45
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:31:13-45
 	android:launchMode
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:32:13-44
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:32:13-44
 	android:configChanges
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:30:13-59
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:30:13-59
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:29:13-101
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:29:13-101
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:34:13-38:29
+ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:34:13-38:29
 category#android.intent.category.LAUNCHER
-ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:35:17-77
+ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:35:17-77
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:35:27-74
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:35:27-74
 action#android.intent.action.MAIN
-ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:37:17-69
+ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:37:17-69
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:37:25-66
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:37:25-66
 activity#org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity
-ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:40:9-58:20
+ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:40:9-58:20
 	android:screenOrientation
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:45:13-49
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:45:13-49
 	android:label
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:43:13-45
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:43:13-45
 	android:launchMode
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:44:13-44
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:44:13-44
 	android:configChanges
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:42:13-59
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:42:13-59
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:41:13-101
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:41:13-101
 intent-filter#action:name:android.hardware.usb.action.USB_DEVICE_ATTACHED
-ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:46:13-48:29
+ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:46:13-48:29
 action#android.hardware.usb.action.USB_DEVICE_ATTACHED
-ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:47:17-90
+ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:47:17-90
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:47:25-87
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:47:25-87
 meta-data#android.hardware.usb.action.USB_DEVICE_ATTACHED
-ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:50:13-52:57
+ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:50:13-52:57
 	android:resource
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:52:17-54
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:52:17-54
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:51:17-79
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:51:17-79
 meta-data#org.firstinspires.main.entry
-ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:55:13-57:40
+ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:55:13-57:40
 	android:value
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:57:17-37
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:57:17-37
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:56:17-60
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:56:17-60
 service#com.qualcomm.ftccommon.FtcRobotControllerService
-ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:61:9-63:38
+ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:61:9-63:38
 	android:enabled
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:63:13-35
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:63:13-35
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:62:13-76
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:62:13-76
 receiver#org.firstinspires.ftc.ftccommon.internal.RunOnBoot
-ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:66:9-77:20
+ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:66:9-77:20
 	android:enabled
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:68:13-35
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:68:13-35
 	android:exported
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:69:13-36
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:69:13-36
 	android:permission
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:70:13-75
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:70:13-75
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:67:13-78
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:67:13-78
 intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.QUICKBOOT_POWERON+category:name:android.intent.category.DEFAULT
-ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:71:13-76:29
+ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:71:13-76:29
 category#android.intent.category.DEFAULT
-ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:72:17-76
+ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:72:17-76
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:72:27-73
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:72:27-73
 action#android.intent.action.BOOT_COMPLETED
-ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:74:17-79
+ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:74:17-79
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:74:25-76
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:74:25-76
 action#android.intent.action.QUICKBOOT_POWERON
-ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:75:17-82
+ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:75:17-82
 	android:name
-		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\FtcRobotController-master\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:75:25-79
+		ADDED from [:FtcRobotController] C:\Users\danie\Desktop\18228-Code-CentreStage-20232024\FtcRobotController\build\intermediates\merged_manifest\debug\AndroidManifest.xml:75:25-79
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from [org.firstinspires.ftc:Blocks:9.0.0] C:\Users\danie\.gradle\caches\transforms-3\a03ad0d15fa1dac627c7b6f87e973d4e\transformed\jetified-Blocks-9.0.0\AndroidManifest.xml:11:5-13:35
 MERGED from [org.firstinspires.ftc:FtcCommon:9.0.0] C:\Users\danie\.gradle\caches\transforms-3\f3db1d91de045c4f4f0ad1d73108d9ca\transformed\jetified-FtcCommon-9.0.0\AndroidManifest.xml:13:5-15:35

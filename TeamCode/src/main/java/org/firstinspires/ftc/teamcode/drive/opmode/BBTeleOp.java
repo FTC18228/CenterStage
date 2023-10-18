@@ -4,7 +4,9 @@ import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.geometry.Vector2d;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 
@@ -13,6 +15,10 @@ public class BBTeleOp extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
+
+        DcMotor intakeMotor = hardwareMap.get(DcMotor.class, "intake");
+        CRServo intakeServo = hardwareMap.get(CRServo.class, "intakeServo");
+        intakeServo.setDirection(DcMotorSimple.Direction.REVERSE);
 
         drive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
@@ -28,6 +34,16 @@ public class BBTeleOp extends LinearOpMode {
                     -gamepad1.left_stick_y,
                     -gamepad1.left_stick_x
             ).rotated(-poseEstimate.getHeading());
+
+            if(gamepad1.a) {
+                intakeMotor.setPower(1);
+                intakeServo.setPower(1);
+            }
+            else {
+                intakeMotor.setPower(0);
+                intakeServo.setPower(0);
+            }
+
 
         // Pass in the rotated input + right stick value for rotation
         // Rotation is not part of the rotated input thus must be passed in separately

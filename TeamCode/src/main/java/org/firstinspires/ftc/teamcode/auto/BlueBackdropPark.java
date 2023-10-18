@@ -24,8 +24,10 @@ public class BlueBackdropPark extends LinearOpMode {
 
         waitForStart();
 
-        while(opModeIsActive() && !isStopRequested()) {
-            mecanumDrive.followTrajectorySequence(trajectorySequence);
-        }
+        if (isStopRequested()) return;
+
+        //while(opModeIsActive() && !isStopRequested()) {=
+        mecanumDrive.followTrajectorySequence(trajectorySequence);
+        //}
     }
 }

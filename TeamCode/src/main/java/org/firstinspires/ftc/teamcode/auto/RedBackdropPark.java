@@ -17,7 +17,7 @@ public class RedBackdropPark extends LinearOpMode {
         mecanumDrive.setPoseEstimate(startPose);
 
         TrajectorySequence trajectorySequence = mecanumDrive.trajectorySequenceBuilder(startPose)
-                .forward(20)
+                .lineTo(new Vector2d(33, 11))
                 .splineTo(new Vector2d(34, 48), Math.toRadians(90))
                 .back(9)
                 .splineToConstantHeading(new Vector2d(58, 58), Math.toRadians(90))

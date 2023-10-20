@@ -65,18 +65,18 @@ public class DriveConstants {
      * small and gradually increase them later after everything is working. All distance units are
      * inches.
      */
-    public static double MAX_VEL = 52.56702632542596;
-    public static double MAX_ACCEL = 52.56702632542596;
-    public static double MAX_ANG_VEL = Math.toRadians(167.32604166666664);
-    public static double MAX_ANG_ACCEL = Math.toRadians(167.32604166666664);
+    public static double MAX_VEL = 73.17330064499293;
+    public static double MAX_ACCEL = 73.17330064499293;
+    public static double MAX_ANG_VEL = Math.toRadians(232.91784999999996);
+    public static double MAX_ANG_ACCEL = Math.toRadians(232.91784999999996);
 
     /*
      * Adjust the orientations here to match your robot. See the FTC SDK documentation for details.
      */
     public static RevHubOrientationOnRobot.LogoFacingDirection LOGO_FACING_DIR =
-            RevHubOrientationOnRobot.LogoFacingDirection.UP;
+            RevHubOrientationOnRobot.LogoFacingDirection.RIGHT;
     public static RevHubOrientationOnRobot.UsbFacingDirection USB_FACING_DIR =
-            RevHubOrientationOnRobot.UsbFacingDirection.FORWARD;
+            RevHubOrientationOnRobot.UsbFacingDirection.BACKWARD;
 
 
     public static double encoderTicksToInches(double ticks) {

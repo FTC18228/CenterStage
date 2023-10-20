@@ -8,16 +8,18 @@ import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
+import org.firstinspires.ftc.teamcode.drive.BotBuildersMecanumDrive;
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 
 @TeleOp(group = "drive")
 public class BBTeleOp extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
-        SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
+        BotBuildersMecanumDrive drive = new BotBuildersMecanumDrive(hardwareMap);
 
         DcMotor intakeMotor = hardwareMap.get(DcMotor.class, "intake");
         CRServo intakeServo = hardwareMap.get(CRServo.class, "intakeServo");
+
         intakeServo.setDirection(DcMotorSimple.Direction.REVERSE);
 
         drive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -27,6 +29,7 @@ public class BBTeleOp extends LinearOpMode {
         while (!isStopRequested()) {
             // Read pose
             Pose2d poseEstimate = drive.getPoseEstimate();
+
 
             // Create a vector from the gamepad x/y inputs
             // Then, rotate that vector by the inverse of that heading
@@ -40,6 +43,13 @@ public class BBTeleOp extends LinearOpMode {
                 intakeServo.setPower(1);
             }
             else {
+                intakeMotor.setPower(0);
+                intakeServo.setPower(0);
+            }
+            if(gamepad1.b){
+                intakeMotor.setPower(-1);
+                intakeServo.setPower(-1);
+            }else{
                 intakeMotor.setPower(0);
                 intakeServo.setPower(0);
             }

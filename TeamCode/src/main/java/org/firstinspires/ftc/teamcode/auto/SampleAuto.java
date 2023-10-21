@@ -10,7 +10,7 @@ import com.acmerobotics.roadrunner.geometry.Pose2d;
         import org.firstinspires.ftc.teamcode.drive.BotBuildersMecanumDrive;
         import org.firstinspires.ftc.teamcode.subsystem.Drive.DriveSubsystem;
         import org.firstinspires.ftc.teamcode.subsystem.Drive.TrajectorySequenceFollowerCommand;
-        import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Intake;
+        import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Disable;
         import org.firstinspires.ftc.teamcode.subsystem.Intake.IntakeSubSystem;
         import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 
@@ -52,7 +52,7 @@ public class SampleAuto extends AutoOpBase {
         CommandScheduler.getInstance().schedule(
                 new WaitUntilCommand(this::isStarted).andThen(
                         new ParallelCommandGroup(
-                                new Intake(intakeSubsystem),
+                                new Disable(intakeSubsystem),
                                 parkFollower
                         )
 

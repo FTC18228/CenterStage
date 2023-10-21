@@ -1,21 +1,19 @@
 package org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands;
 
 import com.arcrobotics.ftclib.command.CommandBase;
-import com.qualcomm.robotcore.hardware.CRServo;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.Servo;
 
-import org.firstinspires.ftc.teamcode.subsystem.Intake.IntakeSubSystem;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.LinearSlideSubSystem;
 
-public class Deliver extends CommandBase {
+public class SlideCompress extends CommandBase {
 
     private final LinearSlideSubSystem slideSubSystem;
-    private Servo depositServo;
+    private final DcMotor slideMotor;
 
-    public Deliver(LinearSlideSubSystem subSystem, HardwareMap hMap) {
+    public SlideCompress(LinearSlideSubSystem subSystem, HardwareMap hMap) {
         slideSubSystem = subSystem;
-        depositServo = hMap.get(Servo.class, "depositServo");
+        slideMotor = hMap.get(DcMotor.class, "slideMotor");
         addRequirements(slideSubSystem);
     }
 
@@ -25,7 +23,13 @@ public class Deliver extends CommandBase {
     }
 
     @Override
+    public void execute() {
+        slideSubSystem.SlideCompress();
+    }
+
+    @Override
     public boolean isFinished() {
-        return super.isFinished();
+        if(slideSubSystem.isSlideInInitialPos(slideMotor.getCurrentPosition())) {return true;}
+        return false;
     }
 }

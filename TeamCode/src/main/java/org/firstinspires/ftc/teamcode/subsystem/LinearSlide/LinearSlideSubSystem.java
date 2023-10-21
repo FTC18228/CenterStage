@@ -8,9 +8,11 @@ import com.qualcomm.robotcore.hardware.Servo;
 public class LinearSlideSubSystem extends SubsystemBase {
     private final DcMotor slideMotor;
     private final Servo depositServo;
+    private final Servo gateServo;
     public LinearSlideSubSystem(final HardwareMap hardwareMap) {
         slideMotor = hardwareMap.get(DcMotor.class, "slideMotor");
         depositServo = hardwareMap.get(Servo.class, "depositServo");
+        gateServo = hardwareMap.get(Servo.class, "gateServo");
     }
     //region SlideChecks
         //Check if linear slides are inside robot
@@ -27,21 +29,32 @@ public class LinearSlideSubSystem extends SubsystemBase {
     //endregion
 
     //region Movement
-    public void Extend() {
+    public void SlideExtend() {
      slideMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
      slideMotor.setTargetPosition(1);
      slideMotor.setPower(1);
     }
 
-    public void Compress() {
+    public void SlideCompress() {
         slideMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         slideMotor.setTargetPosition(0);
         slideMotor.setPower(1);
     }
 
-    public void Deliver() {
+    public void FlipDeposit() {
         depositServo.setPosition(0.8);
+    }
 
+    public void RetractDeposit() {
+        depositServo.setPosition(0);
+    }
+
+    public void OpenGate() {
+        gateServo.setPosition(1);
+    }
+
+    public void CloseGate() {
+        gateServo.setPosition(0);
     }
     //endregion
 }

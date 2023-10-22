@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.auto;
+package org.firstinspires.ftc.teamcode.auto.opmode;
 
 import com.acmerobotics.roadrunner.geometry.Pose2d;
         import com.arcrobotics.ftclib.command.CommandScheduler;
@@ -7,7 +7,8 @@ import com.acmerobotics.roadrunner.geometry.Pose2d;
         import com.arcrobotics.ftclib.gamepad.GamepadEx;
         import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-        import org.firstinspires.ftc.teamcode.drive.BotBuildersMecanumDrive;
+import org.firstinspires.ftc.teamcode.auto.AutoOpBase;
+import org.firstinspires.ftc.teamcode.drive.BotBuildersMecanumDrive;
         import org.firstinspires.ftc.teamcode.subsystem.Drive.DriveSubsystem;
         import org.firstinspires.ftc.teamcode.subsystem.Drive.TrajectorySequenceFollowerCommand;
         import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Disable;
@@ -32,7 +33,7 @@ public class SampleAuto extends AutoOpBase {
         drive = new BotBuildersMecanumDrive(hardwareMap);
         driveSubsystem = new DriveSubsystem(drive, gamepadEx1, telemetry);
 
-        intakeSubsystem = new IntakeSubSystem(hardwareMap, "intake");
+        intakeSubsystem = new IntakeSubSystem(hardwareMap);
 
         //Set the starting position of the robot
         Pose2d startingPosition = new Pose2d(72, 0, Math.toRadians(0));
@@ -42,7 +43,6 @@ public class SampleAuto extends AutoOpBase {
         //Define the movements of the robot that we need.
         TrajectorySequence moveForward = drive.trajectorySequenceBuilder(startingPosition)
                 .forward(11)
-
                 .build();
 
         parkFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, moveForward);

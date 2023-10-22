@@ -8,10 +8,10 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 public class IntakeSubSystem extends SubsystemBase {
     private final DcMotor intakeMotor;
     private final CRServo intakeServo;
-    public IntakeSubSystem(final HardwareMap hardwareMap, final String name) {
+    public IntakeSubSystem(final HardwareMap hardwareMap) {
 
-        intakeMotor = hardwareMap.get(DcMotor.class, name);
-        intakeServo = hardwareMap.get(CRServo.class, name);
+        intakeMotor = hardwareMap.get(DcMotor.class, "intakeMotor");
+        intakeServo = hardwareMap.get(CRServo.class, "intakeServo");
     }
 
     //Intake pixels

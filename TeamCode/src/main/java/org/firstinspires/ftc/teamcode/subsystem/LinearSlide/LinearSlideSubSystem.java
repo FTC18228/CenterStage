@@ -16,6 +16,10 @@ public class LinearSlideSubSystem extends SubsystemBase {
     }
 
     //region SlideChecks
+        public void ResetSlideEncoders() {
+            slideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        }
+
         //Check if linear slides are inside robot
         public boolean isSlideInInitialPos(int currentPos) {
             if(currentPos == 0){return true;}

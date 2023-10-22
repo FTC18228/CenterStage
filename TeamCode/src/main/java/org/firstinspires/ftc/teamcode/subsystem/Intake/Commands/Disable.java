@@ -17,11 +17,6 @@ public class Disable extends CommandBase {
         intakeSubSystem.Disable();
     }
 
-    @Override
-    public void execute() {
-
-    }
-
     public boolean isFinished() {
         return true;
     }

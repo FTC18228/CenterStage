@@ -8,7 +8,6 @@ import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.LinearSlideSubSystem;
 
 public class OpenGate extends CommandBase {
-
     private final LinearSlideSubSystem slideSubSystem;
     private final Servo gateServo;
 
@@ -21,11 +20,6 @@ public class OpenGate extends CommandBase {
     @Override
     public void initialize() {
         slideSubSystem.OpenGate();
-    }
-
-    @Override
-    public void execute() {
-
     }
 
     @Override

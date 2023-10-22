@@ -4,7 +4,6 @@ import com.arcrobotics.ftclib.command.SubsystemBase;
 
 public class WinchSubSystem extends SubsystemBase {
 
-
     public WinchSubSystem(){
 
     }

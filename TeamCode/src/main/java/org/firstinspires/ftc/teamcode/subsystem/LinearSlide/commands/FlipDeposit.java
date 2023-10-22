@@ -7,7 +7,6 @@ import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.LinearSlideSubSystem;
 
 public class FlipDeposit extends CommandBase {
-
     private final LinearSlideSubSystem slideSubSystem;
     private Servo depositServo;
 

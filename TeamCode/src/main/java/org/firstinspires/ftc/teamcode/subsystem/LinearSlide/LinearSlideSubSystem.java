@@ -14,6 +14,7 @@ public class LinearSlideSubSystem extends SubsystemBase {
         depositServo = hardwareMap.get(Servo.class, "depositServo");
         gateServo = hardwareMap.get(Servo.class, "gateServo");
     }
+
     //region SlideChecks
         //Check if linear slides are inside robot
         public boolean isSlideInInitialPos(int currentPos) {

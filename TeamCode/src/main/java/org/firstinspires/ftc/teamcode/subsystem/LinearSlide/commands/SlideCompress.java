@@ -7,7 +7,6 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.LinearSlideSubSystem;
 
 public class SlideCompress extends CommandBase {
-
     private final LinearSlideSubSystem slideSubSystem;
     private final DcMotor slideMotor;
 
@@ -15,11 +14,6 @@ public class SlideCompress extends CommandBase {
         slideSubSystem = subSystem;
         slideMotor = hMap.get(DcMotor.class, "slideMotor");
         addRequirements(slideSubSystem);
-    }
-
-    @Override
-    public void initialize() {
-
     }
 
     @Override

@@ -45,14 +45,16 @@ public class BBTeleOp extends LinearOpMode {
             else {
                 intakeMotor.setPower(0);
                 intakeServo.setPower(0);
+
+                if(gamepad1.b){
+                    intakeMotor.setPower(-1);
+                    intakeServo.setPower(-1);
+                }else{
+                    intakeMotor.setPower(0);
+                    intakeServo.setPower(0);
+                }
             }
-            if(gamepad1.b){
-                intakeMotor.setPower(-1);
-                intakeServo.setPower(-1);
-            }else{
-                intakeMotor.setPower(0);
-                intakeServo.setPower(0);
-            }
+
 
 
         // Pass in the rotated input + right stick value for rotation

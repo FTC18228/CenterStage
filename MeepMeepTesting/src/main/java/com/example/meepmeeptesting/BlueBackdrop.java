@@ -28,6 +28,10 @@ public class BlueBackdrop {
                                 .back(10)
                                 .splineTo(new Vector2d(-58, 17), Math.toRadians(90))
                                 .splineToConstantHeading(new Vector2d(-58, -30), Math.toRadians(90))
+                                .lineTo(new Vector2d(-33, -58))
+                                .lineToLinearHeading(new Pose2d(-34, 48, Math.toRadians(90)))
+                                .back(5)
+                                .splineToConstantHeading(new Vector2d(-58, 58), Math.toRadians(90))
                                 .waitSeconds(5)
                                 .build()
                 );

@@ -22,13 +22,13 @@ public class LinearSlideSubSystem extends SubsystemBase {
 
         //Check if linear slides are inside robot
         public boolean isSlideInInitialPos(int currentPos) {
-            if(currentPos == 0){return true;}
+            if(currentPos == 0) {return true;}
             return false;
         }
 
         //Check if linear slides are extended
         public boolean isSlideInMaxPos(int currentPos) {
-            if(currentPos == 1){return true;}
+            if(currentPos == 1) {return true;}
             return false;
         }
     //endregion

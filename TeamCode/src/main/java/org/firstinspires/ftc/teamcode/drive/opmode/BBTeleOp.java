@@ -30,7 +30,6 @@ public class BBTeleOp extends LinearOpMode {
             // Read pose
             Pose2d poseEstimate = drive.getPoseEstimate();
 
-
             // Create a vector from the gamepad x/y inputs
             // Then, rotate that vector by the inverse of that heading
             Vector2d input = new Vector2d(
@@ -54,8 +53,6 @@ public class BBTeleOp extends LinearOpMode {
                     intakeServo.setPower(0);
                 }
             }
-
-
 
         // Pass in the rotated input + right stick value for rotation
         // Rotation is not part of the rotated input thus must be passed in separately

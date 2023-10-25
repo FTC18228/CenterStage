@@ -21,10 +21,10 @@ public class BlueTrussPark {
                 .setConstraints(60, 60, Math.toRadians(180), Math.toRadians(180), 15)
                 .followTrajectorySequence(drive ->
                         drive.trajectorySequenceBuilder(new Pose2d(-62, -34, 0))
-                                .forward(26)
-                                .strafeLeft(40)
+                                .lineTo(new Vector2d(-36, -34))
+                                .lineTo(new Vector2d(-36, 6))
                                 .lineToLinearHeading(new Pose2d(-34, 48, Math.toRadians(90)))
-                                .back(7)
+                                .lineTo(new Vector2d(-34, 41))
                                 .splineToConstantHeading(new Vector2d(-58, 58), Math.toRadians(90))
                                 .build()
                 );

@@ -21,8 +21,8 @@ public class BlueTruss {
                 .setConstraints(60, 60, Math.toRadians(180), Math.toRadians(180), 15)
                 .followTrajectorySequence(drive ->
                         drive.trajectorySequenceBuilder(new Pose2d(-62, -34, 0))
-                                .forward(26)
-                                .strafeLeft(40)
+                                .lineTo(new Vector2d(-36, -34))
+                                .lineTo(new Vector2d(-36, 6))
                                 .lineToLinearHeading(new Pose2d(-34, 48, Math.toRadians(90)))
                                 .lineToLinearHeading(new Pose2d(-36, 0, Math.toRadians(270)))
                                 .lineToLinearHeading(new Pose2d(-36, -58, Math.toRadians(270)))
@@ -32,7 +32,6 @@ public class BlueTruss {
                                 .lineToLinearHeading(new Pose2d(-36, -58, Math.toRadians(270)))
                                 .lineToLinearHeading(new Pose2d(-36, 0, Math.toRadians(270)))
                                 .lineToLinearHeading(new Pose2d(-34, 48, Math.toRadians(90)))
-
                                 .waitSeconds(5)
                                 .build()
                 );

@@ -42,8 +42,8 @@ public class RedTruss extends AutoOpBase {
         mecanumDrive.setPoseEstimate(startPose);
 
         TrajectorySequence trajectorySequence = mecanumDrive.trajectorySequenceBuilder(startPose)
-                .forward(26)
-                .strafeRight(40)
+                .lineTo(new Vector2d(36, -34))
+                .lineTo(new Vector2d(36, 6))
                 .lineToLinearHeading(new Pose2d(34, 48, Math.toRadians(90)))
                 .lineToLinearHeading(new Pose2d(36, 0, Math.toRadians(270)))
                 .lineToLinearHeading(new Pose2d(36, -58, Math.toRadians(270)))

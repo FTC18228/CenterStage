@@ -44,7 +44,7 @@ public class RedBackdrop extends AutoOpBase {
         TrajectorySequence trajectorySequence = mecanumDrive.trajectorySequenceBuilder(startPose)
                 .lineTo(new Vector2d(33, 11))
                 .splineTo(new Vector2d(34, 48), Math.toRadians(90))
-                .back(9)
+                .lineTo(new Vector2d(-34, 39))
                 .splineToConstantHeading(new Vector2d(58, 58), Math.toRadians(90))
                 .build();
 

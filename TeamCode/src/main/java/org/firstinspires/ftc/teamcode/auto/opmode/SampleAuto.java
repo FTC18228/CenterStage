@@ -19,12 +19,10 @@ import org.firstinspires.ftc.teamcode.drive.BotBuildersMecanumDrive;
 public class SampleAuto extends AutoOpBase {
 
     private BotBuildersMecanumDrive drive;
-
     private DriveSubsystem driveSubsystem;
-
+    private IntakeSubSystem intakeSubsystem;
     private GamepadEx gamepadEx1;
     private TrajectorySequenceFollowerCommand parkFollower;
-    private IntakeSubSystem intakeSubsystem;
 
     @Override
     public void initialize() {

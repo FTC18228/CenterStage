@@ -42,11 +42,17 @@ public class BlueTruss extends AutoOpBase {
         mecanumDrive.setPoseEstimate(startPose);
 
         TrajectorySequence trajectorySequence = mecanumDrive.trajectorySequenceBuilder(new Pose2d(-62, -34, 0))
-                .forward(26)
-                .strafeLeft(40)
+                .lineTo(new Vector2d(-36, -34))
+                .lineTo(new Vector2d(-36, 6))
                 .lineToLinearHeading(new Pose2d(-34, 48, Math.toRadians(90)))
-                .back(7)
-                .splineToConstantHeading(new Vector2d(-58, 58), Math.toRadians(90))
+                .lineToLinearHeading(new Pose2d(-36, 0, Math.toRadians(270)))
+                .lineToLinearHeading(new Pose2d(-36, -58, Math.toRadians(270)))
+                .lineToLinearHeading(new Pose2d(-36, 0, Math.toRadians(270)))
+                .lineToLinearHeading(new Pose2d(-34, 48, Math.toRadians(90)))
+                .lineToLinearHeading(new Pose2d(-36, 0, Math.toRadians(270)))
+                .lineToLinearHeading(new Pose2d(-36, -58, Math.toRadians(270)))
+                .lineToLinearHeading(new Pose2d(-36, 0, Math.toRadians(270)))
+                .lineToLinearHeading(new Pose2d(-34, 48, Math.toRadians(90)))
                 .build();
         parkFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, trajectorySequence);
 

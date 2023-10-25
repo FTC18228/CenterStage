@@ -42,14 +42,19 @@ public class BlueBackdrop extends AutoOpBase {
         mecanumDrive.setPoseEstimate(startPose);
 
         TrajectorySequence trajectorySequence = mecanumDrive.trajectorySequenceBuilder(startPose)
-                .forward(20)
+                .lineTo(new Vector2d(-42, 11))
+                .UNSTABLE_addDisplacementMarkerOffset(0, ()-> {slideSubSystem.FlipDeposit();})
+                .waitSeconds(0.1)
+                .UNSTABLE_addDisplacementMarkerOffset(0, ()-> {slideSubSystem.OpenGate();})
+                .waitSeconds(0.5)
+                .UNSTABLE_addDisplacementMarkerOffset(0, ()-> {slideSubSystem.RetractDeposit();})
                 .splineTo(new Vector2d(-34, 48), Math.toRadians(90))
-                .back(10)
+                .lineTo(new Vector2d(-34, 28))
                 .splineTo(new Vector2d(-58, 17), Math.toRadians(90))
                 .splineToConstantHeading(new Vector2d(-58, -30), Math.toRadians(90))
                 .lineTo(new Vector2d(-33, -58))
                 .lineToLinearHeading(new Pose2d(-34, 48, Math.toRadians(90)))
-                .back(5)
+                .lineTo(new Vector2d(-34, 43))
                 .splineToConstantHeading(new Vector2d(-58, 58), Math.toRadians(90))
                 .build();
 
@@ -63,9 +68,7 @@ public class BlueBackdrop extends AutoOpBase {
                                 new Disable(intakeSubSystem),
                                 parkFollower
                         )
-
                 ));
-
     }
 
     @Override

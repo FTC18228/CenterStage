@@ -10,9 +10,9 @@ public class FlipDeposit extends CommandBase {
     private final LinearSlideSubSystem slideSubSystem;
     private Servo depositServo;
 
-    public FlipDeposit(LinearSlideSubSystem subSystem, HardwareMap hMap) {
+    public FlipDeposit(LinearSlideSubSystem subSystem) {
         slideSubSystem = subSystem;
-        depositServo = hMap.get(Servo.class, "depositServo");
+
         addRequirements(slideSubSystem);
     }
 

@@ -10,9 +10,9 @@ public class RetractDeposit extends CommandBase {
     private final LinearSlideSubSystem slideSubSystem;
     private Servo depositServo;
 
-    public RetractDeposit(LinearSlideSubSystem subSystem, HardwareMap hMap) {
+    public RetractDeposit(LinearSlideSubSystem subSystem) {
         slideSubSystem = subSystem;
-        depositServo = hMap.get(Servo.class, "depositServo");
+
         addRequirements(slideSubSystem);
     }
 

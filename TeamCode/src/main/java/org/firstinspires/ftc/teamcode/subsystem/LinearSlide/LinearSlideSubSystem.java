@@ -11,8 +11,8 @@ public class LinearSlideSubSystem extends SubsystemBase {
     private final Servo gateServo;
     public LinearSlideSubSystem(final HardwareMap hardwareMap) {
         slideMotor = hardwareMap.get(DcMotor.class, "slideMotor");
-        depositServo = hardwareMap.get(Servo.class, "depositServo");
-        gateServo = hardwareMap.get(Servo.class, "gateServo");
+        depositServo = hardwareMap.get(Servo.class, "arm");
+        gateServo = hardwareMap.get(Servo.class, "release");
     }
 
     //region SlideChecks
@@ -40,6 +40,34 @@ public class LinearSlideSubSystem extends SubsystemBase {
      slideMotor.setPower(1);
     }
 
+    public void ManualSlideExtend(){
+        slideMotor.setPower(1);
+    }
+
+    public void ManualSlideRetract(){
+        slideMotor.setPower(-1);
+    }
+
+    public void SlideOff(){
+        slideMotor.setPower(0);
+    }
+
+    public boolean IsExtended(){
+
+        if(slideMotor.getCurrentPosition() < 2050){
+            return false;
+        }
+        return true;
+    }
+
+    public boolean IsRetracted(){
+        if(slideMotor.getCurrentPosition() > 0){
+            return false;
+        }
+
+        return true;
+    }
+
     public void SlideCompress() {
         slideMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         slideMotor.setTargetPosition(0);
@@ -47,7 +75,8 @@ public class LinearSlideSubSystem extends SubsystemBase {
     }
 
     public void FlipDeposit() {
-        depositServo.setPosition(0.8);
+        //This is a 5 turn servo
+        depositServo.setPosition(0.5);
     }
 
     public void RetractDeposit() {

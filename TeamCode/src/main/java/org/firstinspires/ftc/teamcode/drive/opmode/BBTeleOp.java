@@ -25,9 +25,7 @@ public class BBTeleOp extends LinearOpMode {
         DcMotor slideMotor = hardwareMap.get(DcMotor.class, "slideMotor");
 
         slideMotor.setDirection(DcMotorSimple.Direction.REVERSE);
-
         intakeServo.setDirection(DcMotorSimple.Direction.REVERSE);
-
 
         drive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
@@ -39,8 +37,6 @@ public class BBTeleOp extends LinearOpMode {
         while (!isStopRequested()) {
             // Read pose
             Pose2d poseEstimate = drive.getPoseEstimate();
-
-
 
             // Create a vector from the gamepad x/y inputs
             // Then, rotate that vector by the inverse of that heading

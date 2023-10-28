@@ -9,10 +9,8 @@ import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.LinearSlideSubSystem
 public class SlideExtend extends CommandBase {
     private final LinearSlideSubSystem slideSubSystem;
 
-
     public SlideExtend(LinearSlideSubSystem subSystem) {
         slideSubSystem = subSystem;
-
         addRequirements(slideSubSystem);
     }
 
@@ -23,7 +21,6 @@ public class SlideExtend extends CommandBase {
 
     @Override
     public boolean isFinished() {
-
         return slideSubSystem.IsExtended();
     }
 }

@@ -9,11 +9,8 @@ import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.LinearSlideSubSystem
 
 public class OpenGate extends CommandBase {
     private final LinearSlideSubSystem slideSubSystem;
-    private final Servo gateServo;
-
-    public OpenGate(LinearSlideSubSystem subSystem, HardwareMap hMap) {
+    public OpenGate(LinearSlideSubSystem subSystem) {
         slideSubSystem = subSystem;
-        gateServo = hMap.get(Servo.class, "gateServo");
         addRequirements(slideSubSystem);
     }
 

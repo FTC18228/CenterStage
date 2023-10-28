@@ -10,6 +10,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.drive.BotBuildersMecanumDrive;
 import org.firstinspires.ftc.teamcode.subsystem.Drive.DriveCommand;
 import org.firstinspires.ftc.teamcode.subsystem.Drive.DriveSubsystem;
+import org.firstinspires.ftc.teamcode.subsystem.Drone.DroneSubSystem;
 import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Disable;
 import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Intake;
 import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Outtake;
@@ -20,7 +21,7 @@ import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.ManualSlide
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.ManualSlideRetract;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.ManualSlideStop;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.RetractDeposit;
-import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.SlideExtend;
+import org.firstinspires.ftc.teamcode.subsystem.Winch.WinchSubSystem;
 
 import java.util.function.BooleanSupplier;
 
@@ -45,13 +46,15 @@ public class SchedularOpMode  extends CommandOpMode {
         gp1= new GamepadEx(gamepad1);
         gp2= new GamepadEx(gamepad2);
 
-
-        DriveSubsystem drive = new DriveSubsystem(bbMec,gp1, telemetry);
+        DriveSubsystem drive = new DriveSubsystem(bbMec, gp1, telemetry);
 
         //TODO: add other subsystems.
 
         IntakeSubSystem intakeSubSystem = new IntakeSubSystem(hardwareMap);
         LinearSlideSubSystem slideSubsystem = new LinearSlideSubSystem(hardwareMap);
+        DroneSubSystem droneSubSystem = new DroneSubSystem(hardwareMap);
+        WinchSubSystem winchSubSystem = new WinchSubSystem(hardwareMap);
+
 
         gp1.getGamepadButton(GamepadKeys.Button.A).whenPressed(
                 new Intake(intakeSubSystem)
@@ -81,17 +84,15 @@ public class SchedularOpMode  extends CommandOpMode {
                 gp1::getLeftX, gp1::getRightX
         );
 
-
         schedule(driveCommand);
-
 
         new Trigger(new BooleanSupplier(){
             @Override
             public boolean getAsBoolean(){
                 return gp1.getTrigger(GamepadKeys.Trigger.LEFT_TRIGGER) > 0.5;
             }
-        }).whenActive(
-                new ManualSlideExtend(slideSubsystem)
+            }).whenActive(
+                    new ManualSlideExtend(slideSubsystem)
         );
 
         new Trigger(new BooleanSupplier(){
@@ -99,8 +100,8 @@ public class SchedularOpMode  extends CommandOpMode {
             public boolean getAsBoolean(){
                 return gp1.getTrigger(GamepadKeys.Trigger.RIGHT_TRIGGER) > 0.5;
             }
-        }).whenActive(
-                new ManualSlideRetract(slideSubsystem)
+            }).whenActive(
+                    new ManualSlideRetract(slideSubsystem)
         );
 
         new Trigger(new BooleanSupplier() {

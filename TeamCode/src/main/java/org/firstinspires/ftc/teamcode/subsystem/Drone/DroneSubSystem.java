@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class DroneSubSystem extends SubsystemBase {
 
-    public DroneSubSystem(final HardwareMap hardwareMap, final String name) {
+    public DroneSubSystem(final HardwareMap hardwareMap) {
 
     }
 

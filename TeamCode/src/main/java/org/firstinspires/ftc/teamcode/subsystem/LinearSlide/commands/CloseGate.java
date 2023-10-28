@@ -9,11 +9,9 @@ import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.LinearSlideSubSystem
 
 public class CloseGate extends CommandBase {
     private final LinearSlideSubSystem slideSubSystem;
-    private final Servo gateServo;
 
-    public CloseGate(LinearSlideSubSystem subSystem, HardwareMap hMap) {
+    public CloseGate(LinearSlideSubSystem subSystem) {
         slideSubSystem = subSystem;
-        gateServo = hMap.get(Servo.class, "gateServo");
         addRequirements(slideSubSystem);
     }
 

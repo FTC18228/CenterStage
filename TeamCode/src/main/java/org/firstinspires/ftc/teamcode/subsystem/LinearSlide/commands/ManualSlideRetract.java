@@ -10,7 +10,6 @@ public class ManualSlideRetract extends CommandBase {
 
     public ManualSlideRetract(LinearSlideSubSystem subSystem) {
         slideSubSystem = subSystem;
-
         addRequirements(slideSubSystem);
     }
 

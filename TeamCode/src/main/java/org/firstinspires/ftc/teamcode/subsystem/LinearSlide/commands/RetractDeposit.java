@@ -8,11 +8,9 @@ import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.LinearSlideSubSystem
 
 public class RetractDeposit extends CommandBase {
     private final LinearSlideSubSystem slideSubSystem;
-    private Servo depositServo;
 
     public RetractDeposit(LinearSlideSubSystem subSystem) {
         slideSubSystem = subSystem;
-
         addRequirements(slideSubSystem);
     }
 

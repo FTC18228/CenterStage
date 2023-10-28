@@ -10,7 +10,6 @@ public class ManualSlideExtend extends CommandBase {
 
     public ManualSlideExtend(LinearSlideSubSystem subSystem) {
         slideSubSystem = subSystem;
-
         addRequirements(slideSubSystem);
     }
 

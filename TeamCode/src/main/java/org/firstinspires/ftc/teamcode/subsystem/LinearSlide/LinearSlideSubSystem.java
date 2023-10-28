@@ -20,16 +20,19 @@ public class LinearSlideSubSystem extends SubsystemBase {
             slideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         }
 
-        //Check if linear slides are inside robot
-        public boolean isSlideInInitialPos(int currentPos) {
-            if(currentPos == 0) {return true;}
-            return false;
+        public boolean IsExtended(){
+
+            if(slideMotor.getCurrentPosition() < 2050){
+                return false;
+            }
+            return true;
         }
 
-        //Check if linear slides are extended
-        public boolean isSlideInMaxPos(int currentPos) {
-            if(currentPos == 1) {return true;}
-            return false;
+        public boolean IsRetracted(){
+            if(slideMotor.getCurrentPosition() > 0){
+                return false;
+            }
+            return true;
         }
     //endregion
 
@@ -50,22 +53,6 @@ public class LinearSlideSubSystem extends SubsystemBase {
 
     public void SlideOff(){
         slideMotor.setPower(0);
-    }
-
-    public boolean IsExtended(){
-
-        if(slideMotor.getCurrentPosition() < 2050){
-            return false;
-        }
-        return true;
-    }
-
-    public boolean IsRetracted(){
-        if(slideMotor.getCurrentPosition() > 0){
-            return false;
-        }
-
-        return true;
     }
 
     public void SlideCompress() {

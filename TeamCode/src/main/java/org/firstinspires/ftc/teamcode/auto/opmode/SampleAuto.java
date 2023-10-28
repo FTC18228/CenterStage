@@ -3,7 +3,8 @@ package org.firstinspires.ftc.teamcode.auto.opmode;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
         import com.arcrobotics.ftclib.command.CommandScheduler;
         import com.arcrobotics.ftclib.command.ParallelCommandGroup;
-        import com.arcrobotics.ftclib.command.WaitUntilCommand;
+import com.arcrobotics.ftclib.command.SequentialCommandGroup;
+import com.arcrobotics.ftclib.command.WaitUntilCommand;
         import com.arcrobotics.ftclib.gamepad.GamepadEx;
         import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
@@ -13,7 +14,9 @@ import org.firstinspires.ftc.teamcode.drive.BotBuildersMecanumDrive;
         import org.firstinspires.ftc.teamcode.subsystem.Drive.TrajectorySequenceFollowerCommand;
         import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Disable;
         import org.firstinspires.ftc.teamcode.subsystem.Intake.IntakeSubSystem;
-        import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
+import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.LinearSlideSubSystem;
+import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.SlideExtend;
+import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 
 @Autonomous(group = "drive")
 public class SampleAuto extends AutoOpBase {
@@ -49,10 +52,15 @@ public class SampleAuto extends AutoOpBase {
 
         CommandScheduler.getInstance().schedule(
                 new WaitUntilCommand(this::isStarted).andThen(
-                        new ParallelCommandGroup(
-                                new Disable(intakeSubsystem),
-                                parkFollower
+                        new SequentialCommandGroup(
+                                new ParallelCommandGroup(
+                                        new Disable(intakeSubsystem),
+                                        parkFollower
+                                )
+
                         )
+
+
 
                 ));
 

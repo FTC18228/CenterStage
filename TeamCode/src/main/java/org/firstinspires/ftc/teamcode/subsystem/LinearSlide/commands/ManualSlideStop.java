@@ -10,7 +10,6 @@ public class ManualSlideStop extends CommandBase {
 
     public ManualSlideStop(LinearSlideSubSystem subSystem) {
         slideSubSystem = subSystem;
-
         addRequirements(slideSubSystem);
     }
 

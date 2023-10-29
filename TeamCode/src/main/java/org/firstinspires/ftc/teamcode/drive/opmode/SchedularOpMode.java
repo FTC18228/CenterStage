@@ -56,23 +56,23 @@ public class SchedularOpMode  extends CommandOpMode {
         WinchSubSystem winchSubSystem = new WinchSubSystem(hardwareMap);
 
 
-        gp1.getGamepadButton(GamepadKeys.Button.A).whenPressed(
+       gp1.getGamepadButton(GamepadKeys.Button.A).whenPressed(
                 new Intake(intakeSubSystem)
-        ).whenReleased(
+       ).whenReleased(
                 new Disable(intakeSubSystem)
-        );
+       );
 
-        gp1.getGamepadButton(GamepadKeys.Button.B).whenPressed(
+       gp1.getGamepadButton(GamepadKeys.Button.B).whenPressed(
                 new Outtake(intakeSubSystem)
-        ).whenReleased(
+       ).whenReleased(
                 new Disable(intakeSubSystem)
-        );
+       );
 
        gp1.getGamepadButton(GamepadKeys.Button.X).whenPressed(
                 new FlipDeposit(slideSubsystem)
-        ).whenReleased(
+       ).whenReleased(
                 new RetractDeposit(slideSubsystem)
-        );
+       );
 
         /*gp1.getGamepadButton(GamepadKeys.Button.X).toggleWhenActive(
                 new FlipDeposit(slideSubsystem),

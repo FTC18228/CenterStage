@@ -10,7 +10,6 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.drive.BotBuildersMecanumDrive;
-import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 
 @TeleOp(group = "drive")
 public class BBTeleOp extends LinearOpMode {
@@ -98,10 +97,8 @@ public class BBTeleOp extends LinearOpMode {
                 }
             }
 
-
-
             // Pass in the rotated input + right stick value for rotation
-        // Rotation is not part of the rotated input thus must be passed in separately
+            // Rotation is not part of the rotated input thus must be passed in separately
             drive.setWeightedDrivePower(
                     new Pose2d(
                             input.getX(),

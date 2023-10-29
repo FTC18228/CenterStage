@@ -29,14 +29,18 @@ public class BlueBackdropPark extends AutoOpBase {
     BotBuildersMecanumDrive mecanumDrive;
     GamepadEx gamepadEx1;
 
+    DriveSubsystem driveSubsystem;
+    IntakeSubSystem intakeSubSystem;
+    LinearSlideSubSystem slideSubSystem;
+
     @Override
     public void initialize() {
         mecanumDrive = new BotBuildersMecanumDrive(hardwareMap);
         gamepadEx1 = new GamepadEx(gamepad1);
 
-        DriveSubsystem driveSubsystem = new DriveSubsystem(mecanumDrive, gamepadEx1, telemetry);
-        LinearSlideSubSystem slideSubSystem = new LinearSlideSubSystem(hardwareMap);
-        IntakeSubSystem intakeSubSystem = new IntakeSubSystem(hardwareMap);
+        driveSubsystem = new DriveSubsystem(mecanumDrive, gamepadEx1, telemetry);
+        slideSubSystem = new LinearSlideSubSystem(hardwareMap);
+        intakeSubSystem = new IntakeSubSystem(hardwareMap);
 
         Pose2d startPose = new Pose2d(-62, 11, 0);
         mecanumDrive.setPoseEstimate(startPose);

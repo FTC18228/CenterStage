@@ -16,10 +16,12 @@ import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Intake;
 import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Outtake;
 import org.firstinspires.ftc.teamcode.subsystem.Intake.IntakeSubSystem;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.LinearSlideSubSystem;
+import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.CloseGate;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.FlipDeposit;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.ManualSlideExtend;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.ManualSlideRetract;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.ManualSlideStop;
+import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.OpenGate;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.RetractDeposit;
 import org.firstinspires.ftc.teamcode.subsystem.Winch.WinchSubSystem;
 
@@ -35,6 +37,12 @@ public class SchedularOpMode  extends CommandOpMode {
 
     private BotBuildersMecanumDrive bbMec;
 
+    DriveSubsystem driveSubsystem;
+    IntakeSubSystem intakeSubSystem;
+    LinearSlideSubSystem slideSubSystem;
+    WinchSubSystem winchSubSystem;
+    DroneSubSystem droneSubSystem;
+
     @Override
     public void initialize() {
         CommandScheduler.getInstance().reset();
@@ -45,18 +53,23 @@ public class SchedularOpMode  extends CommandOpMode {
 
         gp1= new GamepadEx(gamepad1);
         gp2= new GamepadEx(gamepad2);
-
-        DriveSubsystem drive = new DriveSubsystem(bbMec, gp1, telemetry);
+        driveSubsystem = new DriveSubsystem(bbMec, gp1, telemetry);
 
         //TODO: add other subsystems.
 
-        IntakeSubSystem intakeSubSystem = new IntakeSubSystem(hardwareMap);
-        LinearSlideSubSystem slideSubsystem = new LinearSlideSubSystem(hardwareMap);
-        DroneSubSystem droneSubSystem = new DroneSubSystem(hardwareMap);
-        WinchSubSystem winchSubSystem = new WinchSubSystem(hardwareMap);
+        intakeSubSystem = new IntakeSubSystem(hardwareMap);
+        slideSubSystem = new LinearSlideSubSystem(hardwareMap);
+        droneSubSystem = new DroneSubSystem(hardwareMap);
+        winchSubSystem = new WinchSubSystem(hardwareMap);
 
         //TODO: Control scheme
         gp1.getGamepadButton(GamepadKeys.Button.A).whenPressed(
+                new Intake(intakeSubSystem)
+        ).whenReleased(
+                new Disable(intakeSubSystem)
+        );
+
+        gp2.getGamepadButton(GamepadKeys.Button.A).whenPressed(
                 new Intake(intakeSubSystem)
         ).whenReleased(
                 new Disable(intakeSubSystem)
@@ -68,10 +81,31 @@ public class SchedularOpMode  extends CommandOpMode {
                 new Disable(intakeSubSystem)
         );
 
-        gp1.getGamepadButton(GamepadKeys.Button.X).whenPressed(
-                new FlipDeposit(slideSubsystem)
+        gp2.getGamepadButton(GamepadKeys.Button.B).whenPressed(
+                new Outtake(intakeSubSystem)
         ).whenReleased(
-                new RetractDeposit(slideSubsystem)
+                new Disable(intakeSubSystem)
+        );
+
+        gp1.getGamepadButton(GamepadKeys.Button.LEFT_BUMPER).toggleWhenPressed(
+                new FlipDeposit(slideSubSystem),
+                new RetractDeposit(slideSubSystem)
+        );
+
+        gp2.getGamepadButton(GamepadKeys.Button.LEFT_BUMPER).whenPressed(
+                new FlipDeposit(slideSubSystem)
+        ).whenReleased(
+                new RetractDeposit(slideSubSystem)
+        );
+
+        gp1.getGamepadButton(GamepadKeys.Button.RIGHT_BUMPER).toggleWhenPressed(
+                new OpenGate(slideSubSystem),
+                new CloseGate(slideSubSystem)
+        );
+
+        gp2.getGamepadButton(GamepadKeys.Button.RIGHT_BUMPER).toggleWhenPressed(
+                new OpenGate(slideSubSystem),
+                new CloseGate(slideSubSystem)
         );
 
         /*gp1.getGamepadButton(GamepadKeys.Button.X).toggleWhenActive(
@@ -80,7 +114,7 @@ public class SchedularOpMode  extends CommandOpMode {
         );*/
 
         driveCommand = new DriveCommand(
-                drive, () -> -gp1.getLeftY(),
+                driveSubsystem, () -> -gp1.getLeftY(),
                 gp1::getLeftX, gp1::getRightX
         );
 
@@ -92,7 +126,16 @@ public class SchedularOpMode  extends CommandOpMode {
                 return gp1.getTrigger(GamepadKeys.Trigger.LEFT_TRIGGER) > 0.5;
             }
             }).whenActive(
-                    new ManualSlideExtend(slideSubsystem)
+                    new ManualSlideExtend(slideSubSystem)
+        );
+
+        new Trigger(new BooleanSupplier(){
+            @Override
+            public boolean getAsBoolean(){
+                return gp2.getTrigger(GamepadKeys.Trigger.LEFT_TRIGGER) > 0.5;
+            }
+        }).whenActive(
+                new ManualSlideExtend(slideSubSystem)
         );
 
         new Trigger(new BooleanSupplier(){
@@ -101,7 +144,16 @@ public class SchedularOpMode  extends CommandOpMode {
                 return gp1.getTrigger(GamepadKeys.Trigger.RIGHT_TRIGGER) > 0.5;
             }
             }).whenActive(
-                    new ManualSlideRetract(slideSubsystem)
+                    new ManualSlideRetract(slideSubSystem)
+        );
+
+        new Trigger(new BooleanSupplier(){
+            @Override
+            public boolean getAsBoolean(){
+                return gp2.getTrigger(GamepadKeys.Trigger.RIGHT_TRIGGER) > 0.5;
+            }
+        }).whenActive(
+                new ManualSlideRetract(slideSubSystem)
         );
 
         new Trigger(new BooleanSupplier() {
@@ -110,7 +162,16 @@ public class SchedularOpMode  extends CommandOpMode {
                 return gp1.getTrigger(GamepadKeys.Trigger.LEFT_TRIGGER) <= 0.5 && gp1.getTrigger(GamepadKeys.Trigger.RIGHT_TRIGGER) <= 0.5;
             }
         }).whenActive(
-                new ManualSlideStop(slideSubsystem)
+                new ManualSlideStop(slideSubSystem)
+        );
+
+        new Trigger(new BooleanSupplier() {
+            @Override
+            public boolean getAsBoolean() {
+                return gp2.getTrigger(GamepadKeys.Trigger.LEFT_TRIGGER) <= 0.5 && gp2.getTrigger(GamepadKeys.Trigger.RIGHT_TRIGGER) <= 0.5;
+            }
+        }).whenActive(
+                new ManualSlideStop(slideSubSystem)
         );
 
         //driveCommand = new DriveC

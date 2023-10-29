@@ -13,6 +13,10 @@ public class LinearSlideSubSystem extends SubsystemBase {
         slideMotor = hardwareMap.get(DcMotor.class, "slideMotor");
         depositServo = hardwareMap.get(Servo.class, "arm");
         gateServo = hardwareMap.get(Servo.class, "release");
+        slideMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        depositServo.setPosition(0);
+        gateServo.setPosition(0);
     }
 
     //region SlideChecks

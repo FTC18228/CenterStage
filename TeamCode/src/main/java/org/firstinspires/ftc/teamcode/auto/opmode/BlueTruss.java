@@ -8,11 +8,9 @@ import com.arcrobotics.ftclib.command.SequentialCommandGroup;
 import com.arcrobotics.ftclib.command.WaitUntilCommand;
 import com.arcrobotics.ftclib.gamepad.GamepadEx;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.auto.AutoOpBase;
 import org.firstinspires.ftc.teamcode.drive.BotBuildersMecanumDrive;
-import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 import org.firstinspires.ftc.teamcode.subsystem.Drive.DriveSubsystem;
 import org.firstinspires.ftc.teamcode.subsystem.Drive.TrajectorySequenceFollowerCommand;
 import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Disable;
@@ -22,7 +20,6 @@ import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.LinearSlideSubSystem
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.CloseGate;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.FlipDeposit;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.OpenGate;
-import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.ResetSlideEncoders;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.RetractDeposit;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.SlideCompress;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.SlideExtend;

@@ -31,7 +31,6 @@ public class RedBackdropPark extends AutoOpBase {
     DriveSubsystem driveSubsystem;
     LinearSlideSubSystem slideSubSystem;
     IntakeSubSystem intakeSubSystem;
-    TrajectorySequenceFollowerCommand parkFollower;
 
     @Override
     public void initialize() {
@@ -85,6 +84,7 @@ public class RedBackdropPark extends AutoOpBase {
                                 new OpenGate(slideSubSystem),
                                 new ParallelCommandGroup(
                                         new CloseGate(slideSubSystem),
+                                        new RetractDeposit(slideSubSystem),
                                         new SlideCompress(slideSubSystem),
                                         park
                                 )

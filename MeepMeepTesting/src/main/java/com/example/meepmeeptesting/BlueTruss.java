@@ -28,10 +28,10 @@ public class BlueTruss {
                                 .lineToLinearHeading(new Pose2d(-36, -58, Math.toRadians(270)))
                                 .lineToLinearHeading(new Pose2d(-36, 0, Math.toRadians(270)))
                                 .lineToLinearHeading(new Pose2d(-34, 48, Math.toRadians(90)))
-                                .lineToLinearHeading(new Pose2d(-36, 0, Math.toRadians(270)))
+                                /*.lineToLinearHeading(new Pose2d(-36, 0, Math.toRadians(270)))
                                 .lineToLinearHeading(new Pose2d(-36, -58, Math.toRadians(270)))
                                 .lineToLinearHeading(new Pose2d(-36, 0, Math.toRadians(270)))
-                                .lineToLinearHeading(new Pose2d(-34, 48, Math.toRadians(90)))
+                                .lineToLinearHeading(new Pose2d(-34, 48, Math.toRadians(90)))*/
                                 .waitSeconds(5)
                                 .build()
                 );

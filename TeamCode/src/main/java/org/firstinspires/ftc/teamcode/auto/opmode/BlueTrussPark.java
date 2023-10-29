@@ -85,6 +85,7 @@ public class BlueTrussPark extends AutoOpBase {
                                 new OpenGate(slideSubSystem),
                                 new ParallelCommandGroup(
                                         new CloseGate(slideSubSystem),
+                                        new RetractDeposit(slideSubSystem),
                                         new SlideCompress(slideSubSystem),
                                         park
                                 )

@@ -45,13 +45,6 @@ public class RedBackdrop extends AutoOpBase {
         Pose2d startPose = new Pose2d(62, 11, Math.toRadians(180));
         mecanumDrive.setPoseEstimate(startPose);
 
-        TrajectorySequence trajectorySequence = mecanumDrive.trajectorySequenceBuilder(startPose)
-                .lineTo(new Vector2d(33, 11))
-                .splineTo(new Vector2d(34, 48), Math.toRadians(90))
-                .lineTo(new Vector2d(-34, 39))
-                .splineToConstantHeading(new Vector2d(58, 58), Math.toRadians(90))
-                .build();
-
         TrajectorySequence deliverPurplePixelSequence = mecanumDrive.trajectorySequenceBuilder(startPose)
                 .lineTo(new Vector2d(-42, 11))
                 .build();

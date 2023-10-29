@@ -32,7 +32,6 @@ public class RedTruss extends AutoOpBase {
     DriveSubsystem driveSubsystem;
     LinearSlideSubSystem slideSubSystem;
     IntakeSubSystem intakeSubSystem;
-    TrajectorySequenceFollowerCommand parkFollower;
 
     @Override
     public void initialize() {

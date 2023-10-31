@@ -66,25 +66,25 @@ public class BlueBackdropPark extends AutoOpBase {
                 new WaitUntilCommand(this::isStarted).andThen(
                         new SequentialCommandGroup(
                             new ParallelCommandGroup(
-                                    new Disable(intakeSubSystem),
+                                    //new Disable(intakeSubSystem),
                                     new FlipDeposit(slideSubSystem),
                                     deliverPurplePixel
                             ),
                             new OpenGate(slideSubSystem),
-                            new ParallelCommandGroup(
-                                    new CloseGate(slideSubSystem),
+                            new SequentialCommandGroup(
+                                    //new CloseGate(slideSubSystem),
                                     new RetractDeposit(slideSubSystem)
                             ),
                             new ParallelCommandGroup(
-                                    new SlideExtend(slideSubSystem),
+                                   // new SlideExtend(slideSubSystem),
                                     new FlipDeposit(slideSubSystem),
                                     deliverYellowPixel
                             ),
                             new OpenGate(slideSubSystem),
                             new ParallelCommandGroup(
-                                    new CloseGate(slideSubSystem),
+                                    //new CloseGate(slideSubSystem),
                                     new RetractDeposit(slideSubSystem),
-                                    new SlideCompress(slideSubSystem),
+                                   // new SlideCompress(slideSubSystem),
                                     park
                             )
                         )

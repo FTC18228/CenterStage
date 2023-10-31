@@ -67,7 +67,7 @@ public class LinearSlideSubSystem extends SubsystemBase {
 
     public void FlipDeposit() {
         //This is a 5 turn servo
-        depositServo.setPosition(0.5);
+        depositServo.setPosition(0.41);
     }
 
     public void RetractDeposit() {

@@ -62,7 +62,7 @@ public class BBTeleOp extends LinearOpMode {
                 }
             }
             if(gamepad1.x){
-                arm.setPosition(0.5);  //5 turn servo
+                arm.setPosition(0.41);  //5 turn servo
                 release.setPosition(0.5);
             } else{
                 arm.setPosition(0);

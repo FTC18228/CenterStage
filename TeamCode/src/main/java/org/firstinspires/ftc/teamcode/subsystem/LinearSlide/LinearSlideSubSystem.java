@@ -16,7 +16,7 @@ public class LinearSlideSubSystem extends SubsystemBase {
         slideMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         depositServo.setPosition(0);
-        gateServo.setPosition(0);
+        gateServo.setPosition(1);
     }
 
     //region SlideChecks
@@ -26,10 +26,10 @@ public class LinearSlideSubSystem extends SubsystemBase {
 
         public boolean IsExtended(){
 
-            if(slideMotor.getCurrentPosition() < 2050){
-                return false;
+            if(slideMotor.getCurrentPosition() >= -1000){
+                return true;
             }
-            return true;
+            return false;
         }
 
         public boolean IsRetracted(){
@@ -42,9 +42,13 @@ public class LinearSlideSubSystem extends SubsystemBase {
 
     //region Movement
     public void SlideExtend() {
-     slideMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-     slideMotor.setTargetPosition(1);
-     slideMotor.setPower(1);
+        slideMotor.setTargetPosition(-1000);
+        slideMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        slideMotor.setPower(1);
+    }
+
+    public double SlidePosition(){
+        return slideMotor.getCurrentPosition();
     }
 
     public void ManualSlideExtend(){
@@ -60,8 +64,8 @@ public class LinearSlideSubSystem extends SubsystemBase {
     }
 
     public void SlideCompress() {
-        slideMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         slideMotor.setTargetPosition(0);
+        slideMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         slideMotor.setPower(1);
     }
 
@@ -75,11 +79,11 @@ public class LinearSlideSubSystem extends SubsystemBase {
     }
 
     public void OpenGate() {
-        gateServo.setPosition(1);
+        gateServo.setPosition(0);
     }
 
     public void CloseGate() {
-        gateServo.setPosition(0);
+        gateServo.setPosition(1);
     }
     //endregion
 }

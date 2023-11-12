@@ -1,7 +1,9 @@
 package org.firstinspires.ftc.teamcode.drive.opmode;
 
+import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.arcrobotics.ftclib.command.CommandOpMode;
 import com.arcrobotics.ftclib.command.CommandScheduler;
+import com.arcrobotics.ftclib.command.InstantCommand;
 import com.arcrobotics.ftclib.command.button.Trigger;
 import com.arcrobotics.ftclib.gamepad.GamepadEx;
 import com.arcrobotics.ftclib.gamepad.GamepadKeys;
@@ -115,7 +117,8 @@ public class SchedularOpMode  extends CommandOpMode {
 
         driveCommand = new DriveCommand(
                 driveSubsystem, () -> -gp1.getLeftY(),
-                gp1::getLeftX, gp1::getRightX
+                gp1::getLeftX, gp1::getRightX,
+                gp1.isDown(GamepadKeys.Button.X)
         );
 
         schedule(driveCommand);
@@ -174,7 +177,14 @@ public class SchedularOpMode  extends CommandOpMode {
                 new ManualSlideStop(slideSubSystem)
         );
 
-        //driveCommand = new DriveC
+       schedule(
+               new InstantCommand(
+                       ()->{
+                           telemetry.addData("Vert Pos", slideSubSystem.SlidePosition());
+                           telemetry.update();
+                       }
+               )
+       );
 
 
 
@@ -185,7 +195,18 @@ public class SchedularOpMode  extends CommandOpMode {
     public void run(){
         CommandScheduler.getInstance().run();
 
-        //
+        if(gp1.isDown(GamepadKeys.Button.X) && gp1.isDown(GamepadKeys.Button.Y)){
+            schedule(
+                    new InstantCommand(
+                            () ->
+                            {
+                                bbMec.setPoseEstimate(new Pose2d(0,0,0));
+                                telemetry.addData("Align", "done");
+                                telemetry.update();
+                            }
+                    )
+            );
+        }
     }
 
 

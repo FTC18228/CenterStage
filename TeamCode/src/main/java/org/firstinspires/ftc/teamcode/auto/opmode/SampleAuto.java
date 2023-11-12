@@ -9,6 +9,7 @@ import com.arcrobotics.ftclib.command.SequentialCommandGroup;
 import com.arcrobotics.ftclib.command.WaitUntilCommand;
         import com.arcrobotics.ftclib.gamepad.GamepadEx;
         import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 import org.firstinspires.ftc.teamcode.auto.AutoOpBase;
 import org.firstinspires.ftc.teamcode.drive.BotBuildersMecanumDrive;
@@ -23,6 +24,7 @@ import org.firstinspires.ftc.teamcode.subsystem.Vision.VisionSubSystem;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 
 @Autonomous(group = "drive")
+@Disabled
 public class SampleAuto extends AutoOpBase {
 
     private BotBuildersMecanumDrive drive;

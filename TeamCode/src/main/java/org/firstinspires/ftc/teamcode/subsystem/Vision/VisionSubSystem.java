@@ -20,7 +20,7 @@ public class VisionSubSystem extends SubsystemBase {
     public VisionSubSystem(final HardwareMap hardwareMap, Telemetry telemetry) {
 
         opTelemetry = telemetry;
-        visionProcessor = new CSVisionProcessor(100, 50,150, 150, 50,200,150);
+        visionProcessor = new CSVisionProcessor(120, 120,200, 300, 160);
 
         visionPortal = VisionPortal.easyCreateWithDefaults(hardwareMap.get(WebcamName.class, "Webcam 1"), visionProcessor);
 

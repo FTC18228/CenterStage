@@ -22,16 +22,20 @@ public class BlueBackdrop {
                 // Set bot constraints: maxVel, maxAccel, maxAngVel, maxAngAccel, track width
                 .setConstraints(60, 60, Math.toRadians(180), Math.toRadians(180), 15)
                 .followTrajectorySequence(drive ->
-                        drive.trajectorySequenceBuilder(new Pose2d(-62, 11, 0))
+                        drive.trajectorySequenceBuilder(new Pose2d(-56, 15, Math.toRadians(0)))
                                 /*.lineTo(new Vector2d(-42, 11))
                                 .splineTo(new Vector2d(-34, 48), Math.toRadians(90))
                                 .lineTo(new Vector2d(-34, 28))
                                 .splineTo(new Vector2d(-58, 17), Math.toRadians(90))
                                 .splineToConstantHeading(new Vector2d(-58, -30), Math.toRadians(90))
-                                .lineTo(new Vector2d(-33, -58))*/
+                                .lineTo(new Vector2d(-33, -58))
                                 .lineToLinearHeading(new Pose2d(-34, 48, Math.toRadians(90)))
                                 .lineTo(new Vector2d(-34, 43))
-                                .splineToConstantHeading(new Vector2d(-58, 58), Math.toRadians(90))
+                                .splineToConstantHeading(new Vector2d(-58, 58), Math.toRadians(90))*/
+                                .lineToLinearHeading(new Pose2d(-26, 15, Math.toRadians(0)))
+                                .lineToLinearHeading(new Pose2d(-36, 15,Math.toRadians(0)))
+                                .lineToLinearHeading(new Pose2d(-36, 45,Math.toRadians(270)))
+                                //.lineToLinearHeading(new Pose2d(56,54,Math.toRadians(180)))
                                 .waitSeconds(5)
                                 .build()
                 );

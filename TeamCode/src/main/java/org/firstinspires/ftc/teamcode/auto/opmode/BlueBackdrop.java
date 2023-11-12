@@ -8,6 +8,7 @@ import com.arcrobotics.ftclib.command.SequentialCommandGroup;
 import com.arcrobotics.ftclib.command.WaitUntilCommand;
 import com.arcrobotics.ftclib.gamepad.GamepadEx;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 import org.firstinspires.ftc.teamcode.auto.AutoOpBase;
 import org.firstinspires.ftc.teamcode.drive.BotBuildersMecanumDrive;
@@ -23,15 +24,19 @@ import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.OpenGate;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.RetractDeposit;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.SlideCompress;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.SlideExtend;
+import org.firstinspires.ftc.teamcode.subsystem.Vision.VisionSubSystem;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 
 @Autonomous(group = "BotBuilders")
+@Disabled
 public class BlueBackdrop extends AutoOpBase {
     BotBuildersMecanumDrive mecanumDrive;
     GamepadEx gamepadEx1;
     DriveSubsystem driveSubsystem;
     LinearSlideSubSystem slideSubSystem;
     IntakeSubSystem intakeSubSystem;
+    VisionSubSystem visionSubSystem;
+
     @Override
     public void initialize() {
         mecanumDrive = new BotBuildersMecanumDrive(hardwareMap);
@@ -40,6 +45,7 @@ public class BlueBackdrop extends AutoOpBase {
         driveSubsystem = new DriveSubsystem(mecanumDrive, gamepadEx1, telemetry);
         slideSubSystem = new LinearSlideSubSystem(hardwareMap);
         intakeSubSystem = new IntakeSubSystem(hardwareMap);
+        visionSubSystem = new VisionSubSystem(hardwareMap, telemetry);
 
         Pose2d startPose = new Pose2d(-62, 11, 0);
         mecanumDrive.setPoseEstimate(startPose);

@@ -16,7 +16,8 @@ import com.acmerobotics.roadrunner.geometry.Pose2d;
         import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequenceBuilder;
 
         import java.util.List;
-        import java.util.function.DoubleSupplier;
+import java.util.function.BooleanSupplier;
+import java.util.function.DoubleSupplier;
 
 public class DriveSubsystem extends SubsystemBase {
 
@@ -104,7 +105,7 @@ public class DriveSubsystem extends SubsystemBase {
     }
 
 
-    public void drive(DoubleSupplier leftX, DoubleSupplier leftY, DoubleSupplier rightX) {
+    public void drive(DoubleSupplier leftX, DoubleSupplier leftY, DoubleSupplier rightX, boolean goSlow) {
         Pose2d poseEstimate = driveBase.getPoseEstimate();
 
         Vector2d input = new Vector2d(
@@ -119,6 +120,13 @@ public class DriveSubsystem extends SubsystemBase {
                 -rightX.getAsDouble() * 0.5 //TODO: Look at rotation speed.
         );
 
+        if(goSlow){
+            vel = new Pose2d(
+                    input.getX() * 0.2, //change to go slow
+                    input.getY() * 0.2, //change to go slow
+                    -rightX.getAsDouble() * 0.5 //TODO: Look at rotation speed.
+            );
+        }
 
         driveBase.setWeightedDrivePower(vel);
         driveBase.update();

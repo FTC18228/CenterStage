@@ -13,11 +13,13 @@ import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 
 public class CSVisionProcessor implements VisionProcessor{
-    private Rect rectLeft;// = new Rect(100, 202, 80, 80);
-    private Rect rectMiddle;// = new Rect(200, 202, 80, 80);
-    private Rect rectRight;// = new Rect(300, 202, 80, 80);
+    private Rect rectLeft;
+    private Rect rectMiddle;
 
-    StartingPosition selection = StartingPosition.NONE;
+    //THIS IS THE lower limit of the non view - i.e. saturation with nothing in it.
+    private double defaultSaturationValue = 50;
+
+    StartingPosition selection = StartingPosition.RIGHT;
 
     Mat submat = new Mat();
     Mat hsvMat = new Mat();
@@ -27,10 +29,9 @@ public class CSVisionProcessor implements VisionProcessor{
     public static VisionProcessor getCSVision(
             int width,
             int leftX, int leftY,
-            int middleX, int middleY,
-            int rightX, int rightY
+            int middleX, int middleY
     ){
-        _csVision = new CSVisionProcessor(width, leftX, leftY, middleX, middleY, rightX, rightY);
+        _csVision = new CSVisionProcessor(width, leftX, leftY, middleX, middleY);
         return _csVision;
     }
 
@@ -38,10 +39,11 @@ public class CSVisionProcessor implements VisionProcessor{
         return _csVision.getStartingPosition();
     }
 
-    public CSVisionProcessor(int width, int leftX, int leftY, int middleX, int middleY, int rightX, int rightY){
+    public CSVisionProcessor(int width, int leftX, int leftY, int middleX, int middleY){
         rectLeft = new Rect(leftX, leftY,width, width);
-        rectMiddle = new Rect(middleX, middleY, width, width);
-        rectRight = new Rect(rightX, rightY, width, width);
+        //overriding the middle rectangle size
+        rectMiddle = new Rect(middleX, middleY, 310, 90);
+
     }
 
     @Override
@@ -54,19 +56,18 @@ public class CSVisionProcessor implements VisionProcessor{
 
         double satRectLeft = getAvgSaturation(hsvMat, rectLeft);
         double satRectMiddle = getAvgSaturation(hsvMat, rectMiddle);
-        double satRectRight = getAvgSaturation(hsvMat, rectRight);
 
-        if ((satRectLeft > satRectMiddle) && (satRectLeft > satRectRight)) {
+
+
+        if ((satRectLeft > satRectMiddle) && (satRectLeft > defaultSaturationValue) ) {
             selection = StartingPosition.LEFT;
 
-        }else if ((satRectMiddle > satRectLeft) && (satRectMiddle > satRectRight)){
+        }else if ((satRectMiddle > satRectLeft) && (satRectMiddle > defaultSaturationValue)){
             selection = StartingPosition.CENTER;
 
-        }else if ((satRectRight > satRectMiddle) && (satRectRight > satRectLeft)){
-            selection = StartingPosition.RIGHT;
         }else{
 
-            selection = StartingPosition.NONE;
+            selection = StartingPosition.RIGHT;
         }
 
         return selection;
@@ -76,6 +77,10 @@ public class CSVisionProcessor implements VisionProcessor{
         submat = input.submat(rect);
         Scalar color = Core.mean(submat);
         return color.val[1];
+    }
+
+    public double getDefaultSat(){
+        return defaultSaturationValue;
     }
 
     private android.graphics.Rect makeGraphicsRect(Rect rect, float  scaleBmpPxToCanvasPx) {
@@ -104,7 +109,7 @@ public class CSVisionProcessor implements VisionProcessor{
 
         android.graphics.Rect drawRectangleLeft = makeGraphicsRect(rectLeft, scaleBmpPxToCanvasPx);
         android.graphics.Rect drawRectangleMiddle = makeGraphicsRect(rectMiddle, scaleBmpPxToCanvasPx);
-        android.graphics.Rect drawRectangleRight = makeGraphicsRect(rectRight, scaleBmpPxToCanvasPx);
+
 
         selection = (StartingPosition) userContext;
 
@@ -112,23 +117,23 @@ public class CSVisionProcessor implements VisionProcessor{
             case LEFT:
                 canvas.drawRect(drawRectangleLeft, selectedPaint);
                 canvas.drawRect(drawRectangleMiddle, nonSelected);
-                canvas.drawRect(drawRectangleRight, nonSelected);
+
                 break;
 
             case RIGHT:
                 canvas.drawRect(drawRectangleLeft, nonSelected);
                 canvas.drawRect(drawRectangleMiddle, nonSelected);
-                canvas.drawRect(drawRectangleRight, selectedPaint);
+
                 break;
             case CENTER:
                 canvas.drawRect(drawRectangleLeft, nonSelected);
                 canvas.drawRect(drawRectangleMiddle, selectedPaint);
-                canvas.drawRect(drawRectangleRight, nonSelected);
+
                 break;
             case NONE:
                 canvas.drawRect(drawRectangleLeft, nonSelected);
                 canvas.drawRect(drawRectangleMiddle, nonSelected);
-                canvas.drawRect(drawRectangleRight, nonSelected);
+
                 break;
 
         }

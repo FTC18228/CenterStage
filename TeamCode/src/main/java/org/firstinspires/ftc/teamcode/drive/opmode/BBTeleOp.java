@@ -13,6 +13,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.teamcode.drive.BotBuildersMecanumDrive;
 
 @TeleOp(group = "drive")
+@Disabled
 public class BBTeleOp extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {

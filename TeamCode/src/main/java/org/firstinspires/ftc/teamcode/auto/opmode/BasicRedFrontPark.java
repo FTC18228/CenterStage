@@ -19,6 +19,7 @@ import org.firstinspires.ftc.teamcode.subsystem.Drive.TrajectorySequenceFollower
 import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Disable;
 import org.firstinspires.ftc.teamcode.subsystem.Intake.IntakeSubSystem;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.LinearSlideSubSystem;
+import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.AutoSlideExtend;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.CloseGate;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.FlipDeposit;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.OpenGate;
@@ -74,12 +75,12 @@ public class BasicRedFrontPark extends AutoOpBase {
 
                 .lineToLinearHeading(new Pose2d(26, -34, Math.toRadians(180)))
                 .lineToLinearHeading(new Pose2d(36,-34,Math.toRadians(180)))
-                .lineToLinearHeading(new Pose2d(18,13,Math.toRadians(270)))
+                .lineToLinearHeading(new Pose2d(14,15,Math.toRadians(280)))
                 .build();
 
 
         TrajectorySequence centerMoveToSide = drive.trajectorySequenceBuilder(centerMoveForward.end())
-                .lineToLinearHeading(new Pose2d(26,5,Math.toRadians(270)))
+                .lineToLinearHeading(new Pose2d(40,10,Math.toRadians(270)))
                 .build();
 
 
@@ -125,7 +126,7 @@ public class BasicRedFrontPark extends AutoOpBase {
         CommandScheduler.getInstance().schedule(
                 new WaitUntilCommand(this::isStarted).andThen(
                         new SequentialCommandGroup(
-
+                                        new WaitCommand(3000),
                                         new Disable(intakeSubsystem),
                                         new ConditionalCommand(
                                                 new SequentialCommandGroup(
@@ -133,13 +134,13 @@ public class BasicRedFrontPark extends AutoOpBase {
                                                         telemetry.addData("Running", "Left");
                                                     }),
                                                     leftFollower,
-                                                        new SlideExtend(linearSlideSubsystem),
+                                                        new AutoSlideExtend(linearSlideSubsystem),
                                                         new FlipDeposit(linearSlideSubsystem),
-                                                        new WaitCommand(4000),
+                                                        new WaitCommand(2000),
                                                         new OpenGate(linearSlideSubsystem),
                                                         new WaitCommand(2000),
                                                         new SlideCompress(linearSlideSubsystem),
-                                                        new WaitCommand(3000),
+                                                        new WaitCommand(1000),
                                                         new CloseGate(linearSlideSubsystem),
                                                         new RetractDeposit(linearSlideSubsystem),
                                                         leftMoveToSideFollower
@@ -148,26 +149,26 @@ public class BasicRedFrontPark extends AutoOpBase {
                                                 new ConditionalCommand(
                                                         new SequentialCommandGroup(
                                                             rightFollower,
-                                                                new SlideExtend(linearSlideSubsystem),
+                                                                new AutoSlideExtend(linearSlideSubsystem),
                                                                 new FlipDeposit(linearSlideSubsystem),
-                                                                new WaitCommand(4000),
+                                                                new WaitCommand(2000),
                                                                 new OpenGate(linearSlideSubsystem),
                                                                 new WaitCommand(2000),
                                                                 new SlideCompress(linearSlideSubsystem),
-                                                                new WaitCommand(3000),
+                                                                new WaitCommand(1000),
                                                                 new CloseGate(linearSlideSubsystem),
                                                                 new RetractDeposit(linearSlideSubsystem)
                                                         ),
                                                         //doing the forward paths
                                                         new SequentialCommandGroup(
                                                                 centerMoveForwardFollower,
-                                                                new SlideExtend(linearSlideSubsystem),
+                                                                new AutoSlideExtend(linearSlideSubsystem),
                                                                 new FlipDeposit(linearSlideSubsystem),
-                                                                new WaitCommand(4000),
+                                                                new WaitCommand(2000),
                                                                 new OpenGate(linearSlideSubsystem),
                                                                 new WaitCommand(2000),
                                                                 new SlideCompress(linearSlideSubsystem),
-                                                                new WaitCommand(3000),
+                                                                new WaitCommand(1000),
                                                                 new CloseGate(linearSlideSubsystem),
                                                                 new RetractDeposit(linearSlideSubsystem),
                                                                 centerMoveToSideFollower

@@ -17,6 +17,7 @@ import org.firstinspires.ftc.teamcode.subsystem.Drive.TrajectorySequenceFollower
 import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Disable;
 import org.firstinspires.ftc.teamcode.subsystem.Intake.IntakeSubSystem;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.LinearSlideSubSystem;
+import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.AutoSlideExtend;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.CloseGate;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.FlipDeposit;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.OpenGate;
@@ -49,6 +50,8 @@ public class BasicBlueFrontPark extends AutoOpBase {
 
     private TrajectorySequenceFollowerCommand rightMoveToSideFollower;
 
+    //private TrajectorySequenceFollowerCommand toSideFollower;
+
     @Override
     public void initialize() {
 
@@ -67,45 +70,44 @@ public class BasicBlueFrontPark extends AutoOpBase {
 
         drive.setPoseEstimate(startingPosition);
 
-        //TODO: ALL OF THESE ARE THE SAME - CENTER - 1 in 3 chance.
+
+        //TODO: centerMoveForward, moveRight and moveLeft currently all drop the pixel at the same point on the board
         //Define the movements of the robot that we need.
         TrajectorySequence centerMoveForward = drive.trajectorySequenceBuilder(startingPosition)
 
                 .lineToLinearHeading(new Pose2d(-26, 15, Math.toRadians(0)))
                 .lineToLinearHeading(new Pose2d(-36, 15,Math.toRadians(0)))
-                .lineToLinearHeading(new Pose2d(-16, 61,Math.toRadians(270)))
+                .lineToLinearHeading(new Pose2d(-16, 63,Math.toRadians(260)))
                 .build();
 
 
         TrajectorySequence centerMoveToSide = drive.trajectorySequenceBuilder(centerMoveForward.end())
-                .lineToLinearHeading(new Pose2d(-45,55,Math.toRadians(270)))
+                .lineToLinearHeading(new Pose2d(-40,60,Math.toRadians(270)))
                 .build();
 
 
-        TrajectorySequence rightMoveToSide = drive.trajectorySequenceBuilder(centerMoveForward.end())
-                .lineToLinearHeading(new Pose2d(-45,55,Math.toRadians(270)))
-                .build();
 
 
         TrajectorySequence moveLeft = drive.trajectorySequenceBuilder(startingPosition)
-                .lineToLinearHeading(new Pose2d(-26, 15, Math.toRadians(0)))
-                .lineToLinearHeading(new Pose2d(-36, 15,Math.toRadians(0)))
-                .lineToLinearHeading(new Pose2d(-16, 61,Math.toRadians(270)))
+                .lineToLinearHeading(new Pose2d(-28, 12,Math.toRadians(45)))
+                .lineToLinearHeading(new Pose2d(-40, 9,Math.toRadians(45)))
+                .lineToLinearHeading(new Pose2d(-21, 63,Math.toRadians(260)))
 
                 .build();
 
         TrajectorySequence leftMoveToSide = drive.trajectorySequenceBuilder(moveLeft.end())
-                .lineToLinearHeading(new Pose2d(-45,55,Math.toRadians(270)))
+                .lineToLinearHeading(new Pose2d(0,57,Math.toRadians(270)))
                 .build();
 
         TrajectorySequence moveRight = drive.trajectorySequenceBuilder(startingPosition)
-                .lineToLinearHeading(new Pose2d(-26, 15, Math.toRadians(0)))
-                .lineToLinearHeading(new Pose2d(-36, 15,Math.toRadians(0)))
-                .lineToLinearHeading(new Pose2d(-16, 61,Math.toRadians(270)))
+                .lineToLinearHeading(new Pose2d(-30, 10, Math.toRadians(315)))
+                .lineToLinearHeading(new Pose2d(-6, 61,Math.toRadians(260)))
 
                 .build();
 
-
+        TrajectorySequence rightMoveToSide = drive.trajectorySequenceBuilder(centerMoveForward.end())
+                .lineToLinearHeading(new Pose2d(-40,57,Math.toRadians(270)))
+                .build();
 
         centerMoveForwardFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, centerMoveForward);
 
@@ -118,12 +120,13 @@ public class BasicBlueFrontPark extends AutoOpBase {
 
         rightMoveToSideFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, rightMoveToSide);
 
+        //toSideFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, toSide);
         //wait for the op mode to start, then execute our paths.
 
         CommandScheduler.getInstance().schedule(
                 new WaitUntilCommand(this::isStarted).andThen(
                         new SequentialCommandGroup(
-
+                                        new WaitCommand(3000),
                                         new Disable(intakeSubsystem),
                                         new ConditionalCommand(
                                                 new SequentialCommandGroup(
@@ -131,44 +134,43 @@ public class BasicBlueFrontPark extends AutoOpBase {
                                                         telemetry.addData("Running", "Left");
                                                     }),
                                                     leftFollower,
-                                                        new SlideExtend(linearSlideSubsystem),
+                                                        new AutoSlideExtend(linearSlideSubsystem),
                                                         new FlipDeposit(linearSlideSubsystem),
-                                                        new WaitCommand(4000),
-                                                        new OpenGate(linearSlideSubsystem),
                                                         new WaitCommand(2000),
-                                                        new SlideCompress(linearSlideSubsystem),
-                                                        new WaitCommand(3000),
+                                                        new OpenGate(linearSlideSubsystem),
+                                                        new WaitCommand(1000),
                                                         new CloseGate(linearSlideSubsystem),
-                                                        new RetractDeposit(linearSlideSubsystem)//,
-                                                       // leftMoveToSideFollower
+                                                        new RetractDeposit(linearSlideSubsystem),
+                                                        new SlideCompress(linearSlideSubsystem),
+
+                                                       leftMoveToSideFollower
 
                                                         ),
                                                 new ConditionalCommand(
                                                         new SequentialCommandGroup(
                                                             rightFollower,
-                                                                new SlideExtend(linearSlideSubsystem),
+                                                                new AutoSlideExtend(linearSlideSubsystem),
                                                                 new FlipDeposit(linearSlideSubsystem),
-                                                                new WaitCommand(4000),
-                                                                new OpenGate(linearSlideSubsystem),
                                                                 new WaitCommand(2000),
-                                                                new SlideCompress(linearSlideSubsystem),
-                                                                new WaitCommand(3000),
+                                                                new OpenGate(linearSlideSubsystem),
+                                                                new WaitCommand(1000),
                                                                 new CloseGate(linearSlideSubsystem),
-                                                                new RetractDeposit(linearSlideSubsystem)
+                                                                new RetractDeposit(linearSlideSubsystem),
+                                                                new SlideCompress(linearSlideSubsystem),
+                                                                rightMoveToSideFollower
                                                         ),
                                                         //doing the forward paths
                                                         new SequentialCommandGroup(
                                                                 centerMoveForwardFollower,
-                                                                new SlideExtend(linearSlideSubsystem),
+                                                                new AutoSlideExtend(linearSlideSubsystem),
                                                                 new FlipDeposit(linearSlideSubsystem),
-                                                                new WaitCommand(4000),
-                                                                new OpenGate(linearSlideSubsystem),
                                                                 new WaitCommand(2000),
-                                                                new SlideCompress(linearSlideSubsystem),
-                                                                new WaitCommand(3000),
+                                                                new OpenGate(linearSlideSubsystem),
+                                                                new WaitCommand(1000),
                                                                 new CloseGate(linearSlideSubsystem),
-                                                                new RetractDeposit(linearSlideSubsystem)//,
-                                                              //  centerMoveToSideFollower
+                                                                new RetractDeposit(linearSlideSubsystem),
+                                                                new SlideCompress(linearSlideSubsystem),
+                                                                  centerMoveToSideFollower
 
 
                                                         ),

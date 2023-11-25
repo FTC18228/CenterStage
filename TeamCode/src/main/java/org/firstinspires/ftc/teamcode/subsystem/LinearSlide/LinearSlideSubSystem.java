@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.subsystem.LinearSlide;
 
 import com.arcrobotics.ftclib.command.SubsystemBase;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
@@ -9,11 +10,16 @@ public class LinearSlideSubSystem extends SubsystemBase {
     private final DcMotor slideMotor;
     private final Servo depositServo;
     private final Servo gateServo;
+
+    private final int MAX_POS = 1000;
+
+
     public LinearSlideSubSystem(final HardwareMap hardwareMap) {
         slideMotor = hardwareMap.get(DcMotor.class, "slideMotor");
         depositServo = hardwareMap.get(Servo.class, "arm");
         gateServo = hardwareMap.get(Servo.class, "release");
         slideMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        slideMotor.setDirection(DcMotorSimple.Direction.REVERSE);
 
         depositServo.setPosition(0);
         gateServo.setPosition(1);
@@ -26,14 +32,14 @@ public class LinearSlideSubSystem extends SubsystemBase {
 
         public boolean IsExtended(){
 
-            if(slideMotor.getCurrentPosition() >= -1000){
+            if(slideMotor.getCurrentPosition() >= MAX_POS){
                 return true;
             }
             return false;
         }
 
         public boolean IsRetracted(){
-            if(slideMotor.getCurrentPosition() > 0){
+            if(slideMotor.getCurrentPosition() < 20){
                 return false;
             }
             return true;
@@ -42,9 +48,19 @@ public class LinearSlideSubSystem extends SubsystemBase {
 
     //region Movement
     public void SlideExtend() {
-        slideMotor.setTargetPosition(-1000);
+        slideMotor.setTargetPosition(MAX_POS);
         slideMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         slideMotor.setPower(1);
+    }
+
+    public void SlideAutoHeight(int height){
+        slideMotor.setTargetPosition(height);
+        slideMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        slideMotor.setPower(1);
+    }
+
+    public boolean IsAutoExtended(int height){
+        return slideMotor.getCurrentPosition() >= height;
     }
 
     public double SlidePosition(){
@@ -52,11 +68,11 @@ public class LinearSlideSubSystem extends SubsystemBase {
     }
 
     public void ManualSlideExtend(){
-        slideMotor.setPower(1);
+        slideMotor.setPower(-1);
     }
 
     public void ManualSlideRetract(){
-        slideMotor.setPower(-1);
+        slideMotor.setPower(1);
     }
 
     public void SlideOff(){

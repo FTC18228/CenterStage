@@ -26,6 +26,10 @@ import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.ManualSlide
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.OpenGate;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.RetractDeposit;
 import org.firstinspires.ftc.teamcode.subsystem.Winch.WinchSubSystem;
+import org.firstinspires.ftc.teamcode.subsystem.Winch.commands.ExtendHook;
+import org.firstinspires.ftc.teamcode.subsystem.Winch.commands.LiftWinch;
+import org.firstinspires.ftc.teamcode.subsystem.Winch.commands.ReleaseWinch;
+import org.firstinspires.ftc.teamcode.subsystem.Winch.commands.RetractHook;
 
 import java.util.function.BooleanSupplier;
 
@@ -89,14 +93,33 @@ public class SchedularOpMode  extends CommandOpMode {
                 new Disable(intakeSubSystem)
         );
 
+        gp1.getGamepadButton(GamepadKeys.Button.DPAD_DOWN).toggleWhenPressed(
+                new LiftWinch(winchSubSystem),
+                new ReleaseWinch(winchSubSystem)
+        );
+
+        gp2.getGamepadButton(GamepadKeys.Button.DPAD_DOWN).toggleWhenPressed(
+                new LiftWinch(winchSubSystem),
+                new ReleaseWinch(winchSubSystem)
+        );
+
+        gp1.getGamepadButton(GamepadKeys.Button.DPAD_LEFT).toggleWhenPressed(
+                new ExtendHook(winchSubSystem),
+                new RetractHook(winchSubSystem)
+        );
+
+        gp2.getGamepadButton(GamepadKeys.Button.DPAD_LEFT).toggleWhenPressed(
+                new ExtendHook(winchSubSystem),
+                new RetractHook(winchSubSystem)
+        );
+
         gp1.getGamepadButton(GamepadKeys.Button.LEFT_BUMPER).toggleWhenPressed(
                 new FlipDeposit(slideSubSystem),
                 new RetractDeposit(slideSubSystem)
         );
 
-        gp2.getGamepadButton(GamepadKeys.Button.LEFT_BUMPER).whenPressed(
-                new FlipDeposit(slideSubSystem)
-        ).whenReleased(
+        gp2.getGamepadButton(GamepadKeys.Button.LEFT_BUMPER).toggleWhenPressed(
+                new FlipDeposit(slideSubSystem),
                 new RetractDeposit(slideSubSystem)
         );
 
@@ -110,15 +133,12 @@ public class SchedularOpMode  extends CommandOpMode {
                 new CloseGate(slideSubSystem)
         );
 
-        /*gp1.getGamepadButton(GamepadKeys.Button.X).toggleWhenActive(
-                new FlipDeposit(slideSubsystem),
-                new RetractDeposit(slideSubsystem)
-        );*/
-
         driveCommand = new DriveCommand(
                 driveSubsystem, () -> -gp1.getLeftY(),
                 gp1::getLeftX, gp1::getRightX,
-                gp1.isDown(GamepadKeys.Button.X)
+                //gp1.isDown(GamepadKeys.Button.X)
+                ()-> gp1.isDown(GamepadKeys.Button.X)
+
         );
 
         schedule(driveCommand);

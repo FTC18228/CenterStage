@@ -19,12 +19,10 @@ public class BasicRedForward {
                 // Set bot constraints: maxVel, maxAccel, maxAngVel, maxAngAccel, track width
                 .setConstraints(60, 60, Math.toRadians(180), Math.toRadians(180), 15)
                 .followTrajectorySequence(drive ->
-                        drive.trajectorySequenceBuilder(new Pose2d(56, -34, Math.toRadians(180)))
-                                .forward(20)
-                                .back(10)
-                                .lineToLinearHeading(new Pose2d(10,-60,Math.toRadians(270)))
-                                .lineToLinearHeading(new Pose2d(10, 60, Math.toRadians(270)))
-
+                        drive.trajectorySequenceBuilder(new Pose2d(56, 34, Math.toRadians(180)))
+                                .lineToLinearHeading(new Pose2d(26, -34, Math.toRadians(180)))
+                                .lineToLinearHeading(new Pose2d(36,-34,Math.toRadians(180)))
+                                .lineToLinearHeading(new Pose2d(18,13,Math.toRadians(270)))
                                 .build()
                 );
         Image img = null;

@@ -116,13 +116,13 @@ public class BasicRedBackPark extends AutoOpBase {
 
         TrajectorySequence rightMoveBack = drive.trajectorySequenceBuilder(moveRight.end())
                 .lineToLinearHeading(new Pose2d(-18,65,Math.toRadians(277)))
-                .lineToLinearHeading(new Pose2d(-8, 69,Math.toRadians(277)))
+                .lineToLinearHeading(new Pose2d(12, 69,Math.toRadians(277)))
 
                 .build();
 
         TrajectorySequence rightMovePark = drive.trajectorySequenceBuilder(rightMoveBack.end())
                 .lineToLinearHeading(new Pose2d(-18,65,Math.toRadians(277)))
-                .lineToLinearHeading(new Pose2d(13, 71,Math.toRadians(277)))
+                .lineToLinearHeading(new Pose2d(-18, 71,Math.toRadians(277)))
                 .build();
 
         leftFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, moveLeft);
@@ -165,9 +165,7 @@ public class BasicRedBackPark extends AutoOpBase {
                                                             new CloseGate(linearSlideSubsystem),
                                                             new RetractDeposit(linearSlideSubsystem),
                                                             new SlideCompress(linearSlideSubsystem),
-                                                            rightMoveParkFollower,
-
-                                                            new InstantCommand(() -> telemetry.addData("Running", "Right"))
+                                                            rightMoveParkFollower
                                                         ),
                                                         //doing the forward paths
                                                         new SequentialCommandGroup(

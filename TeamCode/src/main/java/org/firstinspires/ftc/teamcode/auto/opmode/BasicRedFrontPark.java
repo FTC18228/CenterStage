@@ -52,6 +52,8 @@ public class BasicRedFrontPark extends AutoOpBase {
 
     private TrajectorySequenceFollowerCommand rightMoveToSideFollower;
 
+    private TrajectorySequenceFollowerCommand moveOffBackCenterFollower;
+
     @Override
     public void initialize() {
 
@@ -75,13 +77,18 @@ public class BasicRedFrontPark extends AutoOpBase {
 
                 .lineToLinearHeading(new Pose2d(26, -34, Math.toRadians(180)))
                 .lineToLinearHeading(new Pose2d(36,-34,Math.toRadians(180)))
-                .lineToLinearHeading(new Pose2d(14,15,Math.toRadians(280)))
+                .lineToLinearHeading(new Pose2d(14,12.5 ,Math.toRadians(280)))
                 .build();
 
-
-        TrajectorySequence centerMoveToSide = drive.trajectorySequenceBuilder(centerMoveForward.end())
-                .lineToLinearHeading(new Pose2d(40,10,Math.toRadians(270)))
+        TrajectorySequence centerMoveAwayFromWall = drive.trajectorySequenceBuilder(centerMoveForward.end())
+                .lineToLinearHeading(new Pose2d(14,5,Math.toRadians(280)))
                 .build();
+
+        TrajectorySequence centerMoveToSide = drive.trajectorySequenceBuilder(centerMoveAwayFromWall.end())
+                .lineToLinearHeading(new Pose2d(40,15,Math.toRadians(280)))
+                .turn(Math.toRadians(-110))
+                .build();
+
 
 
         TrajectorySequence rightMoveToSide = drive.trajectorySequenceBuilder(centerMoveForward.end())
@@ -121,6 +128,7 @@ public class BasicRedFrontPark extends AutoOpBase {
 
         rightMoveToSideFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, rightMoveToSide);
 
+        moveOffBackCenterFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, centerMoveAwayFromWall);
         //wait for the op mode to start, then execute our paths.
 
         CommandScheduler.getInstance().schedule(
@@ -167,9 +175,11 @@ public class BasicRedFrontPark extends AutoOpBase {
                                                                 new WaitCommand(2000),
                                                                 new OpenGate(linearSlideSubsystem),
                                                                 new WaitCommand(2000),
+                                                                moveOffBackCenterFollower,
                                                                 new SlideCompress(linearSlideSubsystem),
                                                                 new WaitCommand(1000),
                                                                 new CloseGate(linearSlideSubsystem),
+
                                                                 new RetractDeposit(linearSlideSubsystem),
                                                                 centerMoveToSideFollower
 

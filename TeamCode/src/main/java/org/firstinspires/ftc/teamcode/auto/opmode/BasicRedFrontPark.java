@@ -54,6 +54,10 @@ public class BasicRedFrontPark extends AutoOpBase {
 
     private TrajectorySequenceFollowerCommand moveOffBackCenterFollower;
 
+    private TrajectorySequenceFollowerCommand moveOffBackLeftFollower;
+
+    private TrajectorySequenceFollowerCommand moveOffBackRightFollower;
+
     @Override
     public void initialize() {
 
@@ -74,15 +78,16 @@ public class BasicRedFrontPark extends AutoOpBase {
 
         //Define the movements of the robot that we need.
         TrajectorySequence centerMoveForward = drive.trajectorySequenceBuilder(startingPosition)
-
                 .lineToLinearHeading(new Pose2d(26, -34, Math.toRadians(180)))
                 .lineToLinearHeading(new Pose2d(36,-34,Math.toRadians(180)))
                 .lineToLinearHeading(new Pose2d(14,12.5 ,Math.toRadians(280)))
                 .build();
 
+
         TrajectorySequence centerMoveAwayFromWall = drive.trajectorySequenceBuilder(centerMoveForward.end())
                 .lineToLinearHeading(new Pose2d(14,5,Math.toRadians(280)))
                 .build();
+
 
         TrajectorySequence centerMoveToSide = drive.trajectorySequenceBuilder(centerMoveAwayFromWall.end())
                 .lineToLinearHeading(new Pose2d(40,15,Math.toRadians(280)))
@@ -90,29 +95,38 @@ public class BasicRedFrontPark extends AutoOpBase {
                 .build();
 
 
-
-        TrajectorySequence rightMoveToSide = drive.trajectorySequenceBuilder(centerMoveForward.end())
-                .lineToLinearHeading(new Pose2d(26,5,Math.toRadians(270)))
-                .build();
-
-
         TrajectorySequence moveLeft = drive.trajectorySequenceBuilder(startingPosition)
                 .lineToLinearHeading(new Pose2d(28, -37, Math.toRadians(225)))
                 .lineToLinearHeading(new Pose2d(36,-34,Math.toRadians(180)))
-                .lineToLinearHeading(new Pose2d(5,13,Math.toRadians(270)))
-
+                .lineToLinearHeading(new Pose2d(7,13,Math.toRadians(277)))
                 .build();
 
-        TrajectorySequence leftMoveToSide = drive.trajectorySequenceBuilder(moveLeft.end())
-                .lineToLinearHeading(new Pose2d(26,5,Math.toRadians(270)))
+
+        TrajectorySequence leftMoveAwayFromWall = drive.trajectorySequenceBuilder(moveLeft.end())
+                .lineToLinearHeading(new Pose2d(40,-10,Math.toRadians(277)))
                 .build();
+
+
+        TrajectorySequence leftMoveToSide = drive.trajectorySequenceBuilder(leftMoveAwayFromWall.end())
+                //.lineToLinearHeading(new Pose2d(40,-10,Math.toRadians(277)))
+                .lineToLinearHeading(new Pose2d(40,15,Math.toRadians(277)))
+                .build();
+
 
         TrajectorySequence moveRight = drive.trajectorySequenceBuilder(startingPosition)
                 .lineToLinearHeading(new Pose2d(28, -42, Math.toRadians(120)))
-                .lineToLinearHeading(new Pose2d(37,-42,Math.toRadians(120)))
-                .lineToLinearHeading(new Pose2d(46,-42,Math.toRadians(180)))
-                .lineToLinearHeading(new Pose2d(18,13,Math.toRadians(270)))
+                .lineToLinearHeading(new Pose2d(40,-20,Math.toRadians(180)))
+                .lineToLinearHeading(new Pose2d(18,13,Math.toRadians(277)))
+                .build();
 
+
+        TrajectorySequence rightMoveAwayFromWall = drive.trajectorySequenceBuilder(moveRight.end())
+                .lineToLinearHeading(new Pose2d(40,-10,Math.toRadians(277)))
+                .build();
+
+
+        TrajectorySequence rightMoveToSide = drive.trajectorySequenceBuilder(rightMoveAwayFromWall.end())
+                .lineToLinearHeading(new Pose2d(40,15,Math.toRadians(277)))
                 .build();
 
 
@@ -129,12 +143,16 @@ public class BasicRedFrontPark extends AutoOpBase {
         rightMoveToSideFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, rightMoveToSide);
 
         moveOffBackCenterFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, centerMoveAwayFromWall);
+
+        moveOffBackLeftFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, leftMoveAwayFromWall);
+
+        moveOffBackRightFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, rightMoveAwayFromWall);
         //wait for the op mode to start, then execute our paths.
 
         CommandScheduler.getInstance().schedule(
                 new WaitUntilCommand(this::isStarted).andThen(
                         new SequentialCommandGroup(
-                                        new WaitCommand(3000),
+                                        new WaitCommand(0000),
                                         new Disable(intakeSubsystem),
                                         new ConditionalCommand(
                                                 new SequentialCommandGroup(
@@ -147,6 +165,7 @@ public class BasicRedFrontPark extends AutoOpBase {
                                                         new WaitCommand(2000),
                                                         new OpenGate(linearSlideSubsystem),
                                                         new WaitCommand(2000),
+                                                        moveOffBackLeftFollower,
                                                         new SlideCompress(linearSlideSubsystem),
                                                         new WaitCommand(1000),
                                                         new CloseGate(linearSlideSubsystem),
@@ -162,6 +181,7 @@ public class BasicRedFrontPark extends AutoOpBase {
                                                                 new WaitCommand(2000),
                                                                 new OpenGate(linearSlideSubsystem),
                                                                 new WaitCommand(2000),
+                                                                moveOffBackRightFollower,
                                                                 new SlideCompress(linearSlideSubsystem),
                                                                 new WaitCommand(1000),
                                                                 new CloseGate(linearSlideSubsystem),
@@ -172,12 +192,12 @@ public class BasicRedFrontPark extends AutoOpBase {
                                                                 centerMoveForwardFollower,
                                                                 new AutoSlideExtend(linearSlideSubsystem),
                                                                 new FlipDeposit(linearSlideSubsystem),
-                                                                new WaitCommand(2000),
+                                                                new WaitCommand(1000),
                                                                 new OpenGate(linearSlideSubsystem),
-                                                                new WaitCommand(2000),
+                                                                new WaitCommand(1000),
                                                                 moveOffBackCenterFollower,
                                                                 new SlideCompress(linearSlideSubsystem),
-                                                                new WaitCommand(1000),
+                                                                new WaitCommand(500),
                                                                 new CloseGate(linearSlideSubsystem),
 
                                                                 new RetractDeposit(linearSlideSubsystem),

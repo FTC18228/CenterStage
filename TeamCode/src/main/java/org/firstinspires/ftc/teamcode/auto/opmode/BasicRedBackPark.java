@@ -97,20 +97,17 @@ public class BasicRedBackPark extends AutoOpBase {
 
 
         TrajectorySequence moveLeft = drive.trajectorySequenceBuilder(startingPosition)
-                .lineToLinearHeading(new Pose2d(28, -34, Math.toRadians(225)))
-                .back(13)
-                .turn(Math.toRadians(45))
-                .back(2)
-                //.lineToLinearHeading(new Pose2d(-5,-30,Math.toRadians(270)))
-                //.lineToLinearHeading(new Pose2d(-11, 54, Math.toRadians(270)))
+                .lineToLinearHeading(new Pose2d(28, -30, Math.toRadians(223)))
+                .lineToLinearHeading(new Pose2d(40, -30, Math.toRadians(180)))
+                .lineToLinearHeading(new Pose2d(3, -30, Math.toRadians(180)))
+                .turn(Math.toRadians(107))
                 .build();
 
         TrajectorySequence moveRight = drive.trajectorySequenceBuilder(startingPosition)
                 .lineToLinearHeading(new Pose2d(29, -34, Math.toRadians(120)))
                 .lineToLinearHeading(new Pose2d(34,-45,Math.toRadians(160)))
                 .lineToLinearHeading(new Pose2d(-6,-35,Math.toRadians(277)))
-               // .lineToLinearHeading(new Pose2d(-5,-30,Math.toRadians(270)))
-               // .lineToLinearHeading(new Pose2d(-11, 57, Math.toRadians(270)))
+                .lineToLinearHeading(new Pose2d(-6,-35,Math.toRadians(277)))
                 .build();
 
 

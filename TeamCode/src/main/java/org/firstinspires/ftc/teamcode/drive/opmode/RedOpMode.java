@@ -13,6 +13,7 @@ import org.firstinspires.ftc.teamcode.drive.BotBuildersMecanumDrive;
 import org.firstinspires.ftc.teamcode.subsystem.Drive.DriveCommand;
 import org.firstinspires.ftc.teamcode.subsystem.Drive.DriveSubsystem;
 import org.firstinspires.ftc.teamcode.subsystem.Drone.DroneSubSystem;
+import org.firstinspires.ftc.teamcode.subsystem.Drone.commands.DroneLaunchCommand;
 import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Disable;
 import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Intake;
 import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Outtake;
@@ -28,13 +29,16 @@ import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.RetractDepo
 import org.firstinspires.ftc.teamcode.subsystem.Winch.WinchSubSystem;
 import org.firstinspires.ftc.teamcode.subsystem.Winch.commands.ExtendHook;
 import org.firstinspires.ftc.teamcode.subsystem.Winch.commands.LiftWinch;
+import org.firstinspires.ftc.teamcode.subsystem.Winch.commands.LiftWinchMotor;
+import org.firstinspires.ftc.teamcode.subsystem.Winch.commands.LiftWinchReverse;
+import org.firstinspires.ftc.teamcode.subsystem.Winch.commands.LiftWinchStop;
 import org.firstinspires.ftc.teamcode.subsystem.Winch.commands.ReleaseWinch;
 import org.firstinspires.ftc.teamcode.subsystem.Winch.commands.RetractHook;
 
 import java.util.function.BooleanSupplier;
 
 @TeleOp(group ="drive")
-public class SchedularOpMode  extends CommandOpMode {
+public class RedOpMode extends CommandOpMode {
 
     private GamepadEx gp1;
     private GamepadEx gp2;
@@ -113,6 +117,22 @@ public class SchedularOpMode  extends CommandOpMode {
                 new RetractHook(winchSubSystem)
         );
 
+        gp1.getGamepadButton(GamepadKeys.Button.DPAD_UP).whenPressed(
+                new LiftWinchMotor(winchSubSystem)
+        ).whenReleased(new LiftWinchStop(winchSubSystem));
+
+        gp2.getGamepadButton(GamepadKeys.Button.DPAD_UP).whenPressed(
+                new LiftWinchMotor(winchSubSystem)
+        ).whenReleased(new LiftWinchStop(winchSubSystem));
+
+        gp1.getGamepadButton(GamepadKeys.Button.DPAD_RIGHT).whenPressed(
+                new LiftWinchReverse(winchSubSystem)
+        ).whenReleased(new LiftWinchStop(winchSubSystem));
+
+        gp1.getGamepadButton(GamepadKeys.Button.DPAD_RIGHT).whenPressed(
+                new LiftWinchReverse(winchSubSystem)
+        ).whenReleased(new LiftWinchStop(winchSubSystem));
+
         gp1.getGamepadButton(GamepadKeys.Button.LEFT_BUMPER).toggleWhenPressed(
                 new FlipDeposit(slideSubSystem),
                 new RetractDeposit(slideSubSystem)
@@ -131,6 +151,10 @@ public class SchedularOpMode  extends CommandOpMode {
         gp2.getGamepadButton(GamepadKeys.Button.RIGHT_BUMPER).toggleWhenPressed(
                 new OpenGate(slideSubSystem),
                 new CloseGate(slideSubSystem)
+        );
+
+        gp1.getGamepadButton(GamepadKeys.Button.Y).whenPressed(
+                new DroneLaunchCommand(droneSubSystem)
         );
 
         driveCommand = new DriveCommand(

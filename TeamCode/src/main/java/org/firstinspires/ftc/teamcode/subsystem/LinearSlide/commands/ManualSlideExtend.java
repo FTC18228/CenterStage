@@ -21,6 +21,6 @@ public class ManualSlideExtend extends CommandBase {
     @Override
     public boolean isFinished() {
 
-        return slideSubSystem.IsExtended();
+        return true;//slideSubSystem.IsExtended();
     }
 }

@@ -4,6 +4,8 @@ import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.arcrobotics.ftclib.command.CommandOpMode;
 import com.arcrobotics.ftclib.command.CommandScheduler;
 import com.arcrobotics.ftclib.command.InstantCommand;
+import com.arcrobotics.ftclib.command.SequentialCommandGroup;
+import com.arcrobotics.ftclib.command.WaitCommand;
 import com.arcrobotics.ftclib.command.button.Trigger;
 import com.arcrobotics.ftclib.gamepad.GamepadEx;
 import com.arcrobotics.ftclib.gamepad.GamepadKeys;
@@ -26,6 +28,7 @@ import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.ManualSlide
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.ManualSlideStop;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.OpenGate;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.RetractDeposit;
+import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.SlideCompress;
 import org.firstinspires.ftc.teamcode.subsystem.Winch.WinchSubSystem;
 import org.firstinspires.ftc.teamcode.subsystem.Winch.commands.ExtendHook;
 import org.firstinspires.ftc.teamcode.subsystem.Winch.commands.LiftWinch;
@@ -97,24 +100,31 @@ public class RedOpMode extends CommandOpMode {
                 new Disable(intakeSubSystem)
         );
 
+
         gp1.getGamepadButton(GamepadKeys.Button.DPAD_DOWN).toggleWhenPressed(
-                new LiftWinch(winchSubSystem),
-                new ReleaseWinch(winchSubSystem)
+                new SequentialCommandGroup(
+                        new LiftWinch(winchSubSystem),
+                        new WaitCommand(500),
+                        new ExtendHook(winchSubSystem)
+                ),
+                new SequentialCommandGroup(
+                        new RetractHook(winchSubSystem),
+                        new WaitCommand(500),
+                        new ReleaseWinch(winchSubSystem)
+                )
         );
 
         gp2.getGamepadButton(GamepadKeys.Button.DPAD_DOWN).toggleWhenPressed(
-                new LiftWinch(winchSubSystem),
-                new ReleaseWinch(winchSubSystem)
-        );
-
-        gp1.getGamepadButton(GamepadKeys.Button.DPAD_LEFT).toggleWhenPressed(
-                new ExtendHook(winchSubSystem),
-                new RetractHook(winchSubSystem)
-        );
-
-        gp2.getGamepadButton(GamepadKeys.Button.DPAD_LEFT).toggleWhenPressed(
-                new ExtendHook(winchSubSystem),
-                new RetractHook(winchSubSystem)
+                new SequentialCommandGroup(
+                        new LiftWinch(winchSubSystem),
+                        new WaitCommand(500),
+                        new ExtendHook(winchSubSystem)
+                ),
+                new SequentialCommandGroup(
+                        new RetractHook(winchSubSystem),
+                        new WaitCommand(500),
+                        new ReleaseWinch(winchSubSystem)
+                )
         );
 
         gp1.getGamepadButton(GamepadKeys.Button.DPAD_UP).whenPressed(
@@ -129,18 +139,30 @@ public class RedOpMode extends CommandOpMode {
                 new LiftWinchReverse(winchSubSystem)
         ).whenReleased(new LiftWinchStop(winchSubSystem));
 
-        gp1.getGamepadButton(GamepadKeys.Button.DPAD_RIGHT).whenPressed(
+        gp2.getGamepadButton(GamepadKeys.Button.DPAD_RIGHT).whenPressed(
                 new LiftWinchReverse(winchSubSystem)
         ).whenReleased(new LiftWinchStop(winchSubSystem));
 
         gp1.getGamepadButton(GamepadKeys.Button.LEFT_BUMPER).toggleWhenPressed(
                 new FlipDeposit(slideSubSystem),
-                new RetractDeposit(slideSubSystem)
+
+                new SequentialCommandGroup(
+                        new CloseGate(slideSubSystem),
+                        new SlideCompress(slideSubSystem),
+                        new RetractDeposit(slideSubSystem)
+                )
+
         );
 
         gp2.getGamepadButton(GamepadKeys.Button.LEFT_BUMPER).toggleWhenPressed(
                 new FlipDeposit(slideSubSystem),
-                new RetractDeposit(slideSubSystem)
+
+                new SequentialCommandGroup(
+                        new CloseGate(slideSubSystem),
+                        new SlideCompress(slideSubSystem),
+                        new RetractDeposit(slideSubSystem)
+                )
+
         );
 
         gp1.getGamepadButton(GamepadKeys.Button.RIGHT_BUMPER).toggleWhenPressed(
@@ -156,6 +178,11 @@ public class RedOpMode extends CommandOpMode {
         gp1.getGamepadButton(GamepadKeys.Button.Y).whenPressed(
                 new DroneLaunchCommand(droneSubSystem)
         );
+
+        gp2.getGamepadButton(GamepadKeys.Button.Y).whenPressed(
+                new DroneLaunchCommand(droneSubSystem)
+        );
+
 
         driveCommand = new DriveCommand(
                 driveSubsystem, () -> -gp1.getLeftY(),
@@ -238,6 +265,13 @@ public class RedOpMode extends CommandOpMode {
     @Override
     public void run(){
         CommandScheduler.getInstance().run();
+
+        schedule(
+                new InstantCommand(()->{
+                    telemetry.addData("vert", slideSubSystem.getPosition());
+                    telemetry.update();
+                })
+        );
 
         if(gp1.isDown(GamepadKeys.Button.X) && gp1.isDown(GamepadKeys.Button.Y)){
             schedule(

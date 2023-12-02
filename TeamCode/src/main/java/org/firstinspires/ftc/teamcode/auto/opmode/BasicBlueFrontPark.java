@@ -126,7 +126,7 @@ public class BasicBlueFrontPark extends AutoOpBase {
         CommandScheduler.getInstance().schedule(
                 new WaitUntilCommand(this::isStarted).andThen(
                         new SequentialCommandGroup(
-                                        new WaitCommand(3000),
+                                        //new WaitCommand(3000),
                                         new Disable(intakeSubsystem),
                                         new ConditionalCommand(
                                                 new SequentialCommandGroup(

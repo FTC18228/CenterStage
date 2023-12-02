@@ -30,6 +30,7 @@ public class LinearSlideSubSystem extends SubsystemBase {
             slideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         }
 
+
         public boolean IsExtended(){
 
             if(slideMotor.getCurrentPosition() >= MAX_POS){
@@ -39,10 +40,10 @@ public class LinearSlideSubSystem extends SubsystemBase {
         }
 
         public boolean IsRetracted(){
-            if(slideMotor.getCurrentPosition() < 20){
-                return false;
+            if(slideMotor.getCurrentPosition() <= 20){
+                return true;
             }
-            return true;
+            return false;
         }
     //endregion
 
@@ -51,6 +52,10 @@ public class LinearSlideSubSystem extends SubsystemBase {
         slideMotor.setTargetPosition(MAX_POS);
         slideMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         slideMotor.setPower(1);
+    }
+
+    public double getPosition(){
+        return slideMotor.getCurrentPosition();
     }
 
     public void SlideAutoHeight(int height){
@@ -68,14 +73,18 @@ public class LinearSlideSubSystem extends SubsystemBase {
     }
 
     public void ManualSlideExtend(){
+
+        slideMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         slideMotor.setPower(-1);
     }
 
     public void ManualSlideRetract(){
+        slideMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         slideMotor.setPower(1);
     }
 
     public void SlideOff(){
+        slideMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         slideMotor.setPower(0);
     }
 

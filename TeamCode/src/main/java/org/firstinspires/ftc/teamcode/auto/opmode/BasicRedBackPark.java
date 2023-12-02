@@ -104,22 +104,22 @@ public class BasicRedBackPark extends AutoOpBase {
                 .build();
 
         TrajectorySequence moveRight = drive.trajectorySequenceBuilder(startingPosition)
-                .lineToLinearHeading(new Pose2d(29, -34, Math.toRadians(120)))
+                .lineToLinearHeading(new Pose2d(29, -33.5, Math.toRadians(120)))
                 .lineToLinearHeading(new Pose2d(34,-45,Math.toRadians(160)))
                 .lineToLinearHeading(new Pose2d(-6,-35,Math.toRadians(277)))
-                .lineToLinearHeading(new Pose2d(-6,-35,Math.toRadians(277)))
+                .lineToLinearHeading(new Pose2d(-19,30,Math.toRadians(277)))
                 .build();
 
 
         TrajectorySequence rightMoveBack = drive.trajectorySequenceBuilder(moveRight.end())
-                .lineToLinearHeading(new Pose2d(-18,65,Math.toRadians(277)))
+                .lineToLinearHeading(new Pose2d(-19,65,Math.toRadians(280)))
                 .lineToLinearHeading(new Pose2d(12, 69,Math.toRadians(277)))
 
                 .build();
 
         TrajectorySequence rightMovePark = drive.trajectorySequenceBuilder(rightMoveBack.end())
-                .lineToLinearHeading(new Pose2d(-18,65,Math.toRadians(277)))
-                .lineToLinearHeading(new Pose2d(-18, 71,Math.toRadians(277)))
+                .lineToLinearHeading(new Pose2d(-19,65,Math.toRadians(277)))
+                .lineToLinearHeading(new Pose2d(-19, 71,Math.toRadians(277)))
                 .build();
 
         leftFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, moveLeft);

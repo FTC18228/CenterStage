@@ -15,7 +15,7 @@ public class DroneSubSystem extends SubsystemBase {
         droneServo.setPosition(0);
     }
 
-    public void LiftDrone() {liftServo.setPosition(0.45);}
+    public void LiftDrone() {liftServo.setPosition(0.15);}
 
     public void Launch() {
         droneServo.setPosition(0.3);

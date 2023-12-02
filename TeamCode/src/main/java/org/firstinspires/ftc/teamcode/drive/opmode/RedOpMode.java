@@ -179,6 +179,7 @@ public class RedOpMode extends CommandOpMode {
         gp1.getGamepadButton(GamepadKeys.Button.Y).whenPressed(
                 new SequentialCommandGroup(
                         new LiftDrone(droneSubSystem),
+                        new WaitCommand(250),
                         new LaunchDrone(droneSubSystem)
                 )
 
@@ -187,6 +188,7 @@ public class RedOpMode extends CommandOpMode {
         gp2.getGamepadButton(GamepadKeys.Button.Y).whenPressed(
                 new SequentialCommandGroup(
                         new LiftDrone(droneSubSystem),
+                        new WaitCommand(250),
                         new LaunchDrone(droneSubSystem)
                 )
         );

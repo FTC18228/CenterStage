@@ -16,6 +16,7 @@ import org.firstinspires.ftc.teamcode.subsystem.Drive.DriveCommand;
 import org.firstinspires.ftc.teamcode.subsystem.Drive.DriveSubsystem;
 import org.firstinspires.ftc.teamcode.subsystem.Drone.DroneSubSystem;
 import org.firstinspires.ftc.teamcode.subsystem.Drone.commands.LaunchDrone;
+import org.firstinspires.ftc.teamcode.subsystem.Drone.commands.LiftDrone;
 import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Disable;
 import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Intake;
 import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Outtake;
@@ -176,11 +177,18 @@ public class RedOpMode extends CommandOpMode {
         );
 
         gp1.getGamepadButton(GamepadKeys.Button.Y).whenPressed(
-                new LaunchDrone(droneSubSystem)
+                new SequentialCommandGroup(
+                        new LiftDrone(droneSubSystem),
+                        new LaunchDrone(droneSubSystem)
+                )
+
         );
 
         gp2.getGamepadButton(GamepadKeys.Button.Y).whenPressed(
-                new LaunchDrone(droneSubSystem)
+                new SequentialCommandGroup(
+                        new LiftDrone(droneSubSystem),
+                        new LaunchDrone(droneSubSystem)
+                )
         );
 
 

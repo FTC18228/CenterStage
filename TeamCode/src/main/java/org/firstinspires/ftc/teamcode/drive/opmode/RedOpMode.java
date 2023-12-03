@@ -167,14 +167,8 @@ public class RedOpMode extends CommandOpMode {
 
         );
 
-        gp1.getGamepadButton(GamepadKeys.Button.RIGHT_BUMPER).toggleWhenPressed(
-                new OpenGate(slideSubSystem),
-                new CloseGate(slideSubSystem)
-        );
-
         gp2.getGamepadButton(GamepadKeys.Button.RIGHT_BUMPER).toggleWhenPressed(
-                new OpenGate(slideSubSystem),
-                new CloseGate(slideSubSystem)
+                new OpenGate(slideSubSystem)
         );
 
         gp1.getGamepadButton(GamepadKeys.Button.Y).whenPressed(
@@ -199,7 +193,7 @@ public class RedOpMode extends CommandOpMode {
                 driveSubsystem, () -> -gp1.getLeftY(),
                 gp1::getLeftX, gp1::getRightX,
                 //gp1.isDown(GamepadKeys.Button.X)
-                ()-> gp1.isDown(GamepadKeys.Button.X)
+                ()-> gp1.isDown(GamepadKeys.Button.RIGHT_BUMPER)
 
         );
 

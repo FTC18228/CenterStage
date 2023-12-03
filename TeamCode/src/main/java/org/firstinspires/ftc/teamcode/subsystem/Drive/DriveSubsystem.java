@@ -122,8 +122,8 @@ public class DriveSubsystem extends SubsystemBase {
 
         if(goSlow){
             vel = new Pose2d(
-                    input.getX() * 0.2, //change to go slow
-                    input.getY() * 0.2, //change to go slow
+                    input.getX() * 0.3, //change to go slow
+                    input.getY() * 0.3, //change to go slow
                     -rightX.getAsDouble() * 0.5 //TODO: Look at rotation speed.
             );
         }

@@ -98,7 +98,7 @@ public class BasicRedFrontPark extends AutoOpBase {
         TrajectorySequence moveLeft = drive.trajectorySequenceBuilder(startingPosition)
                 .lineToLinearHeading(new Pose2d(28, -37, Math.toRadians(225)))
                 .lineToLinearHeading(new Pose2d(36,-34,Math.toRadians(180)))
-                .lineToLinearHeading(new Pose2d(7,13,Math.toRadians(277)))
+                .lineToLinearHeading(new Pose2d(7,13.2,Math.toRadians(277)))
                 .build();
 
 
@@ -114,9 +114,10 @@ public class BasicRedFrontPark extends AutoOpBase {
 
 
         TrajectorySequence moveRight = drive.trajectorySequenceBuilder(startingPosition)
-                .lineToLinearHeading(new Pose2d(28, -42, Math.toRadians(120)))
+                .lineToLinearHeading(new Pose2d(26.5, -42, Math.toRadians(120)))
+                .lineToLinearHeading(new Pose2d(40, -42, Math.toRadians(120)))
                 .lineToLinearHeading(new Pose2d(40,-20,Math.toRadians(180)))
-                .lineToLinearHeading(new Pose2d(18,13,Math.toRadians(277)))
+                .lineToLinearHeading(new Pose2d(20,13.5,Math.toRadians(277)))
                 .build();
 
 
@@ -126,7 +127,8 @@ public class BasicRedFrontPark extends AutoOpBase {
 
 
         TrajectorySequence rightMoveToSide = drive.trajectorySequenceBuilder(rightMoveAwayFromWall.end())
-                .lineToLinearHeading(new Pose2d(40,15,Math.toRadians(277)))
+                .lineToLinearHeading(new Pose2d(40,20,Math.toRadians(277)))
+                .turn(Math.toRadians(-110))
                 .build();
 
 
@@ -185,7 +187,8 @@ public class BasicRedFrontPark extends AutoOpBase {
                                                                 new SlideCompress(linearSlideSubsystem),
                                                                 new WaitCommand(1000),
                                                                 new CloseGate(linearSlideSubsystem),
-                                                                new RetractDeposit(linearSlideSubsystem)
+                                                                new RetractDeposit(linearSlideSubsystem),
+                                                                rightMoveToSideFollower
                                                         ),
                                                         //doing the forward paths
                                                         new SequentialCommandGroup(

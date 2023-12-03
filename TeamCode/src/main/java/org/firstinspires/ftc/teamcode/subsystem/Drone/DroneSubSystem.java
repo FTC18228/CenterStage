@@ -17,6 +17,14 @@ public class DroneSubSystem extends SubsystemBase {
 
     public void LiftDrone() {liftServo.setPosition(0.15);}
 
+    public void SlowLiftDrone() {
+        double i = 0;
+        while(i < 0.15){
+            liftServo.setPosition(i);
+            i += 0.01;
+        }
+    }
+
     public void Launch() {
         droneServo.setPosition(0.3);
     }

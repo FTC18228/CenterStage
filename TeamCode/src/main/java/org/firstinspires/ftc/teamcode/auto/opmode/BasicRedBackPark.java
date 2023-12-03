@@ -84,12 +84,14 @@ public class BasicRedBackPark extends AutoOpBase {
                 .build();
 
         TrajectorySequence centerMoveToSide = drive.trajectorySequenceBuilder(centerMoveBack.end())
+                //moves to center then to back of field, then moves to center of backdrop and delivers yellow pixel
                 .lineToLinearHeading(new Pose2d(-8,-45,Math.toRadians(280)))
                 .lineToLinearHeading(new Pose2d(-15, 65, Math.toRadians(275)))
                 .lineToLinearHeading(new Pose2d(6, 67, Math.toRadians(275)))
                 .build();
 
         TrajectorySequence centerMovePark = drive.trajectorySequenceBuilder(centerMoveToSide.end())
+                //parks on the right side of backdrop and rotates for initialisation
                 .lineToLinearHeading(new Pose2d(-18,65,Math.toRadians(275)))
                 .lineToLinearHeading(new Pose2d(-18,70,Math.toRadians(275)))
 
@@ -141,7 +143,7 @@ public class BasicRedBackPark extends AutoOpBase {
         CommandScheduler.getInstance().schedule(
                 new WaitUntilCommand(this::isStarted).andThen(
                         new SequentialCommandGroup(
-
+                                        new WaitCommand(5000),
                                         new Disable(intakeSubsystem),
                                         new ConditionalCommand(
                                                 new SequentialCommandGroup(

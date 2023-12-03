@@ -78,6 +78,7 @@ public class BasicRedFrontPark extends AutoOpBase {
 
         //Define the movements of the robot that we need.
         TrajectorySequence centerMoveForward = drive.trajectorySequenceBuilder(startingPosition)
+                //places purple pixel, then moves to backdrop and delivers yellow pixel
                 .lineToLinearHeading(new Pose2d(26, -34, Math.toRadians(180)))
                 .lineToLinearHeading(new Pose2d(36,-34,Math.toRadians(180)))
                 .lineToLinearHeading(new Pose2d(14,12.5 ,Math.toRadians(280)))
@@ -85,50 +86,57 @@ public class BasicRedFrontPark extends AutoOpBase {
 
 
         TrajectorySequence centerMoveAwayFromWall = drive.trajectorySequenceBuilder(centerMoveForward.end())
+                //moves away from the backdrop giving room to close outtake
                 .lineToLinearHeading(new Pose2d(14,5,Math.toRadians(280)))
                 .build();
 
 
         TrajectorySequence centerMoveToSide = drive.trajectorySequenceBuilder(centerMoveAwayFromWall.end())
-                .lineToLinearHeading(new Pose2d(40,15,Math.toRadians(280)))
+                //parks on the right side of backdrop and rotates for initialisation
+                .lineToLinearHeading(new Pose2d(40,17,Math.toRadians(280)))
                 .turn(Math.toRadians(-110))
                 .build();
 
 
         TrajectorySequence moveLeft = drive.trajectorySequenceBuilder(startingPosition)
+                //places purple pixel, then moves to backdrop and delivers yellow pixel
                 .lineToLinearHeading(new Pose2d(28, -37, Math.toRadians(225)))
-                .lineToLinearHeading(new Pose2d(36,-34,Math.toRadians(180)))
+                .lineToLinearHeading(new Pose2d(36,-34,Math.toRadians(225)))
                 .lineToLinearHeading(new Pose2d(7,13.2,Math.toRadians(277)))
                 .build();
 
 
         TrajectorySequence leftMoveAwayFromWall = drive.trajectorySequenceBuilder(moveLeft.end())
+                //moves away from the backdrop giving room to close outtake
                 .lineToLinearHeading(new Pose2d(40,-10,Math.toRadians(277)))
                 .build();
 
 
         TrajectorySequence leftMoveToSide = drive.trajectorySequenceBuilder(leftMoveAwayFromWall.end())
-                //.lineToLinearHeading(new Pose2d(40,-10,Math.toRadians(277)))
-                .lineToLinearHeading(new Pose2d(40,15,Math.toRadians(277)))
+                //parks on the right side of backdrop and rotates for initialisation
+                .lineToLinearHeading(new Pose2d(40,17,Math.toRadians(277)))
+                .turn(Math.toRadians(-110))
                 .build();
 
 
         TrajectorySequence moveRight = drive.trajectorySequenceBuilder(startingPosition)
+                //places purple pixel, then moves to backdrop and delivers yellow pixel
                 .lineToLinearHeading(new Pose2d(26.5, -42, Math.toRadians(120)))
                 .lineToLinearHeading(new Pose2d(40, -42, Math.toRadians(120)))
-
                 .lineToLinearHeading(new Pose2d(40,-20,Math.toRadians(180)))
                 .lineToLinearHeading(new Pose2d(20,13.5,Math.toRadians(277)))
                 .build();
 
 
         TrajectorySequence rightMoveAwayFromWall = drive.trajectorySequenceBuilder(moveRight.end())
+                //moves away from the backdrop giving room to close outtake
                 .lineToLinearHeading(new Pose2d(40,-10,Math.toRadians(277)))
                 .build();
 
 
         TrajectorySequence rightMoveToSide = drive.trajectorySequenceBuilder(rightMoveAwayFromWall.end())
-                .lineToLinearHeading(new Pose2d(40,20,Math.toRadians(277)))
+                //parks on the right side of backdrop and rotates for initialisation
+                .lineToLinearHeading(new Pose2d(40,17,Math.toRadians(277)))
                 .turn(Math.toRadians(-110))
                 .build();
 
@@ -203,7 +211,6 @@ public class BasicRedFrontPark extends AutoOpBase {
                                                                 new SlideCompress(linearSlideSubsystem),
                                                                 new WaitCommand(500),
                                                                 new CloseGate(linearSlideSubsystem),
-
                                                                 new RetractDeposit(linearSlideSubsystem),
                                                                 centerMoveToSideFollower
 

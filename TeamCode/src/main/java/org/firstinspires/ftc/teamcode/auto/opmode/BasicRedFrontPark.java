@@ -116,6 +116,7 @@ public class BasicRedFrontPark extends AutoOpBase {
         TrajectorySequence moveRight = drive.trajectorySequenceBuilder(startingPosition)
                 .lineToLinearHeading(new Pose2d(26.5, -42, Math.toRadians(120)))
                 .lineToLinearHeading(new Pose2d(40, -42, Math.toRadians(120)))
+
                 .lineToLinearHeading(new Pose2d(40,-20,Math.toRadians(180)))
                 .lineToLinearHeading(new Pose2d(20,13.5,Math.toRadians(277)))
                 .build();

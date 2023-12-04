@@ -14,6 +14,7 @@ import org.firstinspires.ftc.teamcode.auto.AutoOpBase;
 import org.firstinspires.ftc.teamcode.drive.BotBuildersMecanumDrive;
 import org.firstinspires.ftc.teamcode.subsystem.Drive.DriveSubsystem;
 import org.firstinspires.ftc.teamcode.subsystem.Drive.TrajectorySequenceFollowerCommand;
+import org.firstinspires.ftc.teamcode.subsystem.Drone.DroneSubSystem;
 import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Disable;
 import org.firstinspires.ftc.teamcode.subsystem.Intake.IntakeSubSystem;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.LinearSlideSubSystem;
@@ -37,6 +38,8 @@ public class BasicRedBackPark extends AutoOpBase {
     private VisionSubSystem visionSubSystem;
 
     private LinearSlideSubSystem linearSlideSubsystem;
+
+    private DroneSubSystem droneSubSystem;
 
     private GamepadEx gamepadEx1;
     private TrajectorySequenceFollowerCommand centerMoveForwardFollower;
@@ -65,6 +68,7 @@ public class BasicRedBackPark extends AutoOpBase {
 
         visionSubSystem = new VisionSubSystem(hardwareMap, telemetry);
 
+        droneSubSystem = new DroneSubSystem(hardwareMap);
 
         linearSlideSubsystem = new LinearSlideSubSystem(hardwareMap);
 

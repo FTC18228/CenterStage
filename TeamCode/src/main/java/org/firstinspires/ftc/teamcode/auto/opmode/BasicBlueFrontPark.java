@@ -14,6 +14,7 @@ import org.firstinspires.ftc.teamcode.auto.AutoOpBase;
 import org.firstinspires.ftc.teamcode.drive.BotBuildersMecanumDrive;
 import org.firstinspires.ftc.teamcode.subsystem.Drive.DriveSubsystem;
 import org.firstinspires.ftc.teamcode.subsystem.Drive.TrajectorySequenceFollowerCommand;
+import org.firstinspires.ftc.teamcode.subsystem.Drone.DroneSubSystem;
 import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Disable;
 import org.firstinspires.ftc.teamcode.subsystem.Intake.IntakeSubSystem;
 import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.LinearSlideSubSystem;
@@ -34,6 +35,8 @@ public class BasicBlueFrontPark extends AutoOpBase {
     private BotBuildersMecanumDrive drive;
     private DriveSubsystem driveSubsystem;
     private IntakeSubSystem intakeSubsystem;
+
+    private DroneSubSystem droneSubSystem;
 
     private VisionSubSystem visionSubSystem;
 
@@ -64,6 +67,8 @@ public class BasicBlueFrontPark extends AutoOpBase {
         visionSubSystem = new VisionSubSystem(hardwareMap, telemetry);
 
         linearSlideSubsystem = new LinearSlideSubSystem(hardwareMap);
+
+        droneSubSystem = new DroneSubSystem(hardwareMap);
 
         //Set the starting position of the robot
         Pose2d startingPosition = new Pose2d(-56, 15, Math.toRadians(0));

@@ -97,6 +97,7 @@ public class BasicBlueFrontPark extends AutoOpBase {
 
         TrajectorySequence leftMoveToSide = drive.trajectorySequenceBuilder(moveLeft.end())
                 .lineToLinearHeading(new Pose2d(0,57,Math.toRadians(270)))
+                .turn(Math.toRadians(0))
                 .build();
 
         TrajectorySequence moveRight = drive.trajectorySequenceBuilder(startingPosition)

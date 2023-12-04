@@ -91,10 +91,10 @@ public class BasicRedBackPark extends AutoOpBase {
                 .build();
 
         TrajectorySequence centerMovePark = drive.trajectorySequenceBuilder(centerMoveToSide.end())
-                //parks on the right side of backdrop and rotates for initialisation
+                //parks on the right side of backdrop and rotates for initialisation.
                 .lineToLinearHeading(new Pose2d(-18,65,Math.toRadians(275)))
                 .lineToLinearHeading(new Pose2d(-18,70,Math.toRadians(275)))
-
+                .turn(Math.toRadians(-180))
                 .build();
 
 
@@ -122,6 +122,7 @@ public class BasicRedBackPark extends AutoOpBase {
         TrajectorySequence rightMovePark = drive.trajectorySequenceBuilder(rightMoveBack.end())
                 .lineToLinearHeading(new Pose2d(-19,65,Math.toRadians(277)))
                 .lineToLinearHeading(new Pose2d(-19, 71,Math.toRadians(277)))
+                .turn(Math.toRadians(-180))
                 .build();
 
         leftFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, moveLeft);

@@ -91,24 +91,21 @@ public class BasicBlueFrontPark extends AutoOpBase {
                 .build();
 
 
-
-
         TrajectorySequence moveLeft = drive.trajectorySequenceBuilder(startingPosition)
-                .lineToLinearHeading(new Pose2d(-28, 12,Math.toRadians(45)))
+                .lineToLinearHeading(new Pose2d(-28, 10,Math.toRadians(45)))
                 .lineToLinearHeading(new Pose2d(-40, 9,Math.toRadians(45)))
-                .lineToLinearHeading(new Pose2d(-21, 63,Math.toRadians(260)))
-
+                .lineToLinearHeading(new Pose2d(-23, 63,Math.toRadians(263)))
                 .build();
 
         TrajectorySequence leftMoveToSide = drive.trajectorySequenceBuilder(moveLeft.end())
-                .lineToLinearHeading(new Pose2d(0,57,Math.toRadians(270)))
-                .turn(Math.toRadians(0))
+                .lineToLinearHeading(new Pose2d(-40,57,Math.toRadians(263)))
+                .lineToLinearHeading(new Pose2d(-40,66,Math.toRadians(263)))
+                .turn(Math.toRadians(110))
                 .build();
 
         TrajectorySequence moveRight = drive.trajectorySequenceBuilder(startingPosition)
                 .lineToLinearHeading(new Pose2d(-30, 10, Math.toRadians(315)))
                 .lineToLinearHeading(new Pose2d(-6, 61,Math.toRadians(260)))
-
                 .build();
 
         TrajectorySequence rightMoveToSide = drive.trajectorySequenceBuilder(centerMoveForward.end())

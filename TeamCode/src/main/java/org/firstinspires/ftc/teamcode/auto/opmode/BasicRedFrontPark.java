@@ -106,19 +106,19 @@ public class BasicRedFrontPark extends AutoOpBase {
                 //places purple pixel, then moves to backdrop and delivers yellow pixel
                 .lineToLinearHeading(new Pose2d(28, -37, Math.toRadians(225)))
                 .lineToLinearHeading(new Pose2d(36,-34,Math.toRadians(225)))
-                .lineToLinearHeading(new Pose2d(7,13.2,Math.toRadians(277)))
+                .lineToLinearHeading(new Pose2d(7,11.5,Math.toRadians(277)))
                 .build();
 
 
         TrajectorySequence leftMoveAwayFromWall = drive.trajectorySequenceBuilder(moveLeft.end())
                 //moves away from the backdrop giving room to close outtake
-                .lineToLinearHeading(new Pose2d(40,-10,Math.toRadians(277)))
+                .lineToLinearHeading(new Pose2d(40,0,Math.toRadians(277)))
                 .build();
 
 
         TrajectorySequence leftMoveToSide = drive.trajectorySequenceBuilder(leftMoveAwayFromWall.end())
                 //parks on the right side of backdrop and rotates for initialisation
-                .lineToLinearHeading(new Pose2d(40,17,Math.toRadians(277)))
+                .lineToLinearHeading(new Pose2d(39,17,Math.toRadians(277)))
                 .turn(Math.toRadians(-110))
                 .build();
 
@@ -128,7 +128,7 @@ public class BasicRedFrontPark extends AutoOpBase {
                 .lineToLinearHeading(new Pose2d(26.5, -42, Math.toRadians(120)))
                 .lineToLinearHeading(new Pose2d(40, -42, Math.toRadians(120)))
                 .lineToLinearHeading(new Pose2d(40,-20,Math.toRadians(180)))
-                .lineToLinearHeading(new Pose2d(20,13.5,Math.toRadians(277)))
+                .lineToLinearHeading(new Pose2d(23,13.5,Math.toRadians(277)))
                 .build();
 
 
@@ -177,12 +177,12 @@ public class BasicRedFrontPark extends AutoOpBase {
                                                     leftFollower,
                                                         new AutoSlideExtend(linearSlideSubsystem),
                                                         new FlipDeposit(linearSlideSubsystem),
-                                                        new WaitCommand(2000),
+                                                        new WaitCommand(1500),
                                                         new OpenGate(linearSlideSubsystem),
-                                                        new WaitCommand(2000),
+                                                        new WaitCommand(1000),
                                                         moveOffBackLeftFollower,
                                                         new SlideCompress(linearSlideSubsystem),
-                                                        new WaitCommand(1000),
+                                                        new WaitCommand(300),
                                                         new CloseGate(linearSlideSubsystem),
                                                         new RetractDeposit(linearSlideSubsystem),
                                                         leftMoveToSideFollower
@@ -198,7 +198,7 @@ public class BasicRedFrontPark extends AutoOpBase {
                                                                 new WaitCommand(2000),
                                                                 moveOffBackRightFollower,
                                                                 new SlideCompress(linearSlideSubsystem),
-                                                                new WaitCommand(1000),
+                                                                new WaitCommand(300),
                                                                 new CloseGate(linearSlideSubsystem),
                                                                 new RetractDeposit(linearSlideSubsystem),
                                                                 rightMoveToSideFollower
@@ -208,7 +208,7 @@ public class BasicRedFrontPark extends AutoOpBase {
                                                                 centerMoveForwardFollower,
                                                                 new AutoSlideExtend(linearSlideSubsystem),
                                                                 new FlipDeposit(linearSlideSubsystem),
-                                                                new WaitCommand(1000),
+                                                                new WaitCommand(2000),
                                                                 new OpenGate(linearSlideSubsystem),
                                                                 new WaitCommand(1000),
                                                                 moveOffBackCenterFollower,

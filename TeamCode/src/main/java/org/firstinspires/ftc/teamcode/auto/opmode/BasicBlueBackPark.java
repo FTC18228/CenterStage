@@ -5,6 +5,7 @@ import com.arcrobotics.ftclib.command.CommandScheduler;
 import com.arcrobotics.ftclib.command.ConditionalCommand;
 import com.arcrobotics.ftclib.command.InstantCommand;
 import com.arcrobotics.ftclib.command.SequentialCommandGroup;
+import com.arcrobotics.ftclib.command.WaitCommand;
 import com.arcrobotics.ftclib.command.WaitUntilCommand;
 import com.arcrobotics.ftclib.gamepad.GamepadEx;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -16,6 +17,13 @@ import org.firstinspires.ftc.teamcode.subsystem.Drive.TrajectorySequenceFollower
 import org.firstinspires.ftc.teamcode.subsystem.Drone.DroneSubSystem;
 import org.firstinspires.ftc.teamcode.subsystem.Intake.Commands.Disable;
 import org.firstinspires.ftc.teamcode.subsystem.Intake.IntakeSubSystem;
+import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.LinearSlideSubSystem;
+import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.AutoSlideExtend;
+import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.CloseGate;
+import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.FlipDeposit;
+import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.OpenGate;
+import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.RetractDeposit;
+import org.firstinspires.ftc.teamcode.subsystem.LinearSlide.commands.SlideCompress;
 import org.firstinspires.ftc.teamcode.subsystem.Vision.CSVisionProcessor;
 import org.firstinspires.ftc.teamcode.subsystem.Vision.VisionSubSystem;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
@@ -27,12 +35,14 @@ public class BasicBlueBackPark extends AutoOpBase {
     private DriveSubsystem driveSubsystem;
     private IntakeSubSystem intakeSubsystem;
 
+    private LinearSlideSubSystem linearSlideSubsystem;
     private DroneSubSystem droneSubSystem;
 
     private VisionSubSystem visionSubSystem;
     private GamepadEx gamepadEx1;
     private TrajectorySequenceFollowerCommand centerMoveForwardFollower;
     private TrajectorySequenceFollowerCommand leftFollower;
+    private TrajectorySequenceFollowerCommand moveOffBackLeftFollower;
     private TrajectorySequenceFollowerCommand rightFollower;
 
     private TrajectorySequenceFollowerCommand centerMoveBackFollower;
@@ -47,6 +57,8 @@ public class BasicBlueBackPark extends AutoOpBase {
         driveSubsystem = new DriveSubsystem(drive, gamepadEx1, telemetry);
 
         intakeSubsystem = new IntakeSubSystem(hardwareMap);
+
+        linearSlideSubsystem= new LinearSlideSubSystem(hardwareMap);
 
         visionSubSystem = new VisionSubSystem(hardwareMap, telemetry);
 
@@ -76,17 +88,21 @@ public class BasicBlueBackPark extends AutoOpBase {
 
 
         TrajectorySequence moveLeft = drive.trajectorySequenceBuilder(startingPosition)
-                .lineToLinearHeading(new Pose2d(-33, 36, Math.toRadians(310)))
-                .lineToLinearHeading(new Pose2d(-36,50,Math.toRadians(270)))
-                //.lineToLinearHeading(new Pose2d(-40,20,Math.toRadians(270)))
-                //.lineToLinearHeading(new Pose2d(-30, 0, Math.toRadians(180)))
-                //.lineToLinearHeading(new Pose2d(54, -5, Math.toRadians(180)))
+                .lineToLinearHeading(new Pose2d(-28, 35, Math.toRadians(300)))
+                .lineToLinearHeading(new Pose2d(-40,50,Math.toRadians(270)))
+                .lineToLinearHeading(new Pose2d(-40,-3,Math.toRadians(172)))
+                .lineToLinearHeading(new Pose2d(40,-3,Math.toRadians(172)))
+                .lineToLinearHeading(new Pose2d(67,20,Math.toRadians(172)))
                 .build();
 
-
+        TrajectorySequence leftMoveAwayFromWall = drive.trajectorySequenceBuilder(moveLeft.end())
+                .lineToLinearHeading(new Pose2d(62, 20, Math.toRadians(172)))
+                .lineToLinearHeading(new Pose2d(62, -5, Math.toRadians(172)))
+                .turn(Math.toRadians(107))
+                .build();
 
         TrajectorySequence moveRight = drive.trajectorySequenceBuilder(startingPosition)
-                .lineToLinearHeading(new Pose2d(-35, 38, Math.toRadians(225)))
+                .lineToLinearHeading(new Pose2d(-35, 38, Math.toRadians(240)))
                 .lineToLinearHeading(new Pose2d(-34,50,Math.toRadians(270)))
                 //.lineToLinearHeading(new Pose2d(-34,20,Math.toRadians(270)))
                 //.lineToLinearHeading(new Pose2d(-36, 0, Math.toRadians(180)))
@@ -101,6 +117,8 @@ public class BasicBlueBackPark extends AutoOpBase {
         centerMoveToWallFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, centerMoveToSide);
 
         leftFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, moveLeft);
+        moveOffBackLeftFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, leftMoveAwayFromWall);
+
         rightFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, moveRight);
 
         //wait for the op mode to start, then execute our paths.
@@ -115,7 +133,17 @@ public class BasicBlueBackPark extends AutoOpBase {
                                                     new InstantCommand(()->{
                                                         telemetry.addData("Running", "Left");
                                                     }),
-                                                    leftFollower
+                                                        leftFollower,
+                                                        new AutoSlideExtend(linearSlideSubsystem),
+                                                        new FlipDeposit(linearSlideSubsystem),
+                                                        new WaitCommand(1500),
+                                                        new OpenGate(linearSlideSubsystem),
+                                                        new WaitCommand(1000),
+                                                        moveOffBackLeftFollower,
+                                                        new WaitCommand(500),
+                                                        new CloseGate(linearSlideSubsystem),
+                                                        new RetractDeposit(linearSlideSubsystem),
+                                                        new SlideCompress(linearSlideSubsystem)
                                                 ),
                                                 new ConditionalCommand(
                                                         new SequentialCommandGroup(

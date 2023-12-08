@@ -44,6 +44,10 @@ public class BasicRedBackPark extends AutoOpBase {
     private GamepadEx gamepadEx1;
     private TrajectorySequenceFollowerCommand centerMoveForwardFollower;
     private TrajectorySequenceFollowerCommand leftFollower;
+    private TrajectorySequenceFollowerCommand leftMoveBackFollower;
+    private TrajectorySequenceFollowerCommand moveOffBackLeftFollower;
+
+    private TrajectorySequenceFollowerCommand leftMoveParkFollower;
     private TrajectorySequenceFollowerCommand rightFollower;
 
     private TrajectorySequenceFollowerCommand centerMoveBackFollower;
@@ -114,7 +118,23 @@ public class BasicRedBackPark extends AutoOpBase {
                 .lineToLinearHeading(new Pose2d(28, -30, Math.toRadians(223)))
                 .lineToLinearHeading(new Pose2d(40, -30, Math.toRadians(180)))
                 .lineToLinearHeading(new Pose2d(3, -30, Math.toRadians(180)))
-                .turn(Math.toRadians(107))
+                //.turn(Math.toRadians(107))
+                .build();
+
+        TrajectorySequence leftMoveBack = drive.trajectorySequenceBuilder(moveLeft.end())
+                .lineToLinearHeading(new Pose2d(-19,65,Math.toRadians(277)))
+                .lineToLinearHeading(new Pose2d(3, 70.5,Math.toRadians(277)))
+                .build();
+
+        TrajectorySequence leftMoveAwayFromWall = drive.trajectorySequenceBuilder(leftMoveBack.end())
+                //moves away from the backdrop giving room to close outtake
+                .lineToLinearHeading(new Pose2d(3,66,Math.toRadians(277)))
+                .lineToLinearHeading(new Pose2d(-19,66,Math.toRadians(277)))
+                .build();
+
+        TrajectorySequence leftMovePark = drive.trajectorySequenceBuilder(leftMoveAwayFromWall.end())
+                .lineToLinearHeading(new Pose2d(-17, 74,Math.toRadians(277)))
+                .turn(Math.toRadians(-107))
                 .build();
 
         TrajectorySequence moveRight = drive.trajectorySequenceBuilder(startingPosition)
@@ -142,6 +162,9 @@ public class BasicRedBackPark extends AutoOpBase {
                 .build();
 
         leftFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, moveLeft);
+        leftMoveBackFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, leftMoveBack);
+        moveOffBackLeftFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, leftMoveAwayFromWall);
+        leftMoveParkFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, leftMovePark);
 
         centerMoveForwardFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, centerMoveForward);
         centerMoveBackFollower = new TrajectorySequenceFollowerCommand(driveSubsystem, centerMoveBack);
@@ -169,7 +192,19 @@ public class BasicRedBackPark extends AutoOpBase {
                                                     new InstantCommand(()->{
                                                         telemetry.addData("Running", "Left");
                                                     }),
-                                                    leftFollower
+                                                    leftFollower,
+                                                    leftMoveBackFollower,
+                                                    new AutoSlideExtend(linearSlideSubsystem),
+                                                    new FlipDeposit(linearSlideSubsystem),
+                                                    new WaitCommand(1500),
+                                                    new OpenGate(linearSlideSubsystem),
+                                                    new WaitCommand(1000),
+                                                    moveOffBackLeftFollower,
+                                                    new WaitCommand(500),
+                                                    new CloseGate(linearSlideSubsystem),
+                                                    new RetractDeposit(linearSlideSubsystem),
+                                                    new SlideCompress(linearSlideSubsystem),
+                                                    leftMoveParkFollower
                                                 ),
                                                 new ConditionalCommand(
                                                         new SequentialCommandGroup(
